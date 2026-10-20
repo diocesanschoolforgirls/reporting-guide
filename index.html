@@ -59,11 +59,10 @@ h1{margin:0 0 16px;font-weight:300;font-size:clamp(2.4rem,1.9rem + 2.6vw,3.6rem)
 .chip{display:flex;align-items:center;gap:12px;min-height:52px;padding:8px 14px;border-radius:var(--r);text-decoration:none;font-size:1rem;line-height:1.25;font-weight:500;background:#fff;color:var(--dio-blue);border:1.5px solid var(--dio-blue);box-shadow:var(--shadow-sm)}
 .chip .n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:.875rem;font-weight:700;background:var(--dio-blue);color:#fff}
 .chip:hover{background:var(--inset)}
+.chips li:first-child .chip .n{background:var(--dio-red)}
 
 /* ---------- Sections ---------- */
 .sec{padding:48px 0 4px;scroll-margin-top:12px}
-.sec.first{padding-top:36px}
-.sec.first .dash{border:3px solid var(--dio-red)}
 .sec h2{margin:0;font-weight:300;font-size:clamp(1.7rem,1.4rem + 1.3vw,2.4rem);line-height:1.15;color:var(--heading)}
 .sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 6px}
 .sec-head .no{flex:none;font-size:.875rem;font-weight:700;letter-spacing:.1em;color:var(--dio-red)}
@@ -435,8 +434,26 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     <p>You are responsible for each of your comments: their accuracy, appropriateness, professional tone and quality.</p>
   </aside>
 
+  <nav class="nav" aria-label="Sections on this page">
+    <p class="eyebrow">Twelve sections</p>
+    <ol class="chips">
+      <li><a class="chip" href="#dashboards"><span class="n">1</span><span>Dashboards</span></a></li>
+      <li><a class="chip" href="#why"><span class="n">2</span><span>Why reports matter</span></a></li>
+      <li><a class="chip" href="#dates"><span class="n">3</span><span>Key dates 2026</span></a></li>
+      <li><a class="chip" href="#stages"><span class="n">4</span><span>The three stages</span></a></li>
+      <li><a class="chip" href="#who"><span class="n">5</span><span>Who does what</span></a></li>
+      <li><a class="chip" href="#chain"><span class="n">6</span><span>The deadline chain</span></a></li>
+      <li><a class="chip" href="#length"><span class="n">7</span><span>How long should a comment be?</span></a></li>
+      <li><a class="chip" href="#good"><span class="n">8</span><span>A good comment</span></a></li>
+      <li><a class="chip" href="#catches"><span class="n">9</span><span>What the BIM dashboard will catch</span></a></li>
+      <li><a class="chip" href="#dictionary"><span class="n">10</span><span>The Dio Dictionary</span></a></li>
+      <li><a class="chip" href="#tereo"><span class="n">11</span><span>Te reo M&#257;ori in reports</span></a></li>
+      <li><a class="chip" href="#help"><span class="n">12</span><span>Help</span></a></li>
+    </ol>
+  </nav>
+
   <!-- 1 -->
-  <section class="sec first" id="dashboards" aria-labelledby="dashboards-h">
+  <section class="sec" id="dashboards" aria-labelledby="dashboards-h">
     <div class="sec-head"><span class="no">01</span><h2 id="dashboards-h">Dashboards</h2><a class="top" href="#top">Back to top</a></div>
     <p class="lede">BIM&rsquo;s data check dashboards read comments straight from Synergetic and list the ones that need correcting, so you can fix them before reports go out.</p>
 
@@ -461,24 +478,6 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
       <div class="cc wide"><h3>Feedback</h3><p>Send it through a Helpdesk ticket to Business Information Management.</p></div>
     </div>
   </section>
-
-  <nav class="nav" aria-label="Sections on this page">
-    <p class="eyebrow">Twelve sections</p>
-    <ol class="chips">
-      <li><a class="chip" href="#dashboards"><span class="n">1</span><span>Dashboards</span></a></li>
-      <li><a class="chip" href="#why"><span class="n">2</span><span>Why reports matter</span></a></li>
-      <li><a class="chip" href="#dates"><span class="n">3</span><span>Key dates 2026</span></a></li>
-      <li><a class="chip" href="#stages"><span class="n">4</span><span>The three stages</span></a></li>
-      <li><a class="chip" href="#who"><span class="n">5</span><span>Who does what</span></a></li>
-      <li><a class="chip" href="#chain"><span class="n">6</span><span>The deadline chain</span></a></li>
-      <li><a class="chip" href="#length"><span class="n">7</span><span>How long should a comment be?</span></a></li>
-      <li><a class="chip" href="#good"><span class="n">8</span><span>A good comment</span></a></li>
-      <li><a class="chip" href="#catches"><span class="n">9</span><span>What the BIM dashboard will catch</span></a></li>
-      <li><a class="chip" href="#dictionary"><span class="n">10</span><span>The Dio Dictionary</span></a></li>
-      <li><a class="chip" href="#tereo"><span class="n">11</span><span>Te reo M&#257;ori in reports</span></a></li>
-      <li><a class="chip" href="#help"><span class="n">12</span><span>Help</span></a></li>
-    </ol>
-  </nav>
 
   <!-- 2 -->
   <section class="sec" id="why" aria-labelledby="why-h">

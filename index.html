@@ -55,7 +55,15 @@ h1{margin:0 0 16px;font-weight:300;font-size:clamp(2.4rem,1.9rem + 2.6vw,3.6rem)
 .ai-label{font-size:.875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:2px}
 .aibtn{display:inline-flex;align-items:center;min-height:48px;padding:10px 18px;border-radius:var(--r);background:var(--dio-red);color:#fff;text-decoration:none;font-weight:700;line-height:1.25;box-shadow:var(--shadow-sm)}
 .aibtn:hover{background:#9f232b}
-@media (max-width:640px){.aitools{flex-direction:column;align-items:stretch}.aibtn{justify-content:center}}
+.toolrow{display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px 36px;margin:22px 0 0}
+.toolrow .aitools{margin:0}
+.smsbtn{background:var(--dio-blue)}
+.smsbtn:hover{background:#00366b}
+#sms{align-items:flex-start}
+#sms .ai-label{line-height:48px}
+.sms-stack{display:flex;flex-direction:column;gap:4px}
+.sms-note{font-size:.875rem;color:var(--muted);text-align:center}
+@media (max-width:640px){.toolrow{flex-direction:column;align-items:stretch}.aitools{flex-direction:column;align-items:stretch}.aibtn{justify-content:center}#sms{align-items:stretch}#sms .ai-label{line-height:inherit}}
 /* ---------- Section nav ---------- */
 .nav{padding:34px 0 8px}
 .eyebrow{margin:0 0 12px;font-size:.875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -439,6 +447,7 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     <p>You are responsible for each of your comments: their accuracy, appropriateness, professional tone and quality.</p>
   </aside>
 
+  <div class="toolrow">
   <!-- AI-TOOL-LINKS: the only place the two tool URLs live. Body links copy these (script at foot). -->
   <div class="aitools" id="ai-tools" role="group" aria-label="School AI tools">
     <span class="ai-label">AI tools</span>
@@ -446,6 +455,16 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     <a class="aibtn" data-ai="checker" href="https://www.playlab.ai/project/cltozkrpf0wr3px9fx9zty57b" target="_blank" rel="noopener noreferrer">Ultimate Report Checker</a>
   </div>
   <!-- /AI-TOOL-LINKS -->
+  <!-- SMS-LINK: ISS how-to guide for Synergetic and Synweb (needs DioConnect sign-in). Added 2026-10-21. -->
+  <div class="aitools" id="sms" role="group" aria-label="Synergetic how-to guide">
+    <span class="ai-label">Synergetic</span>
+    <span class="sms-stack">
+      <a class="aibtn smsbtn" href="https://support.diocesan.school.nz/hc/en-us/articles/20822773046425-Senior-School-Report-Processes" target="_blank" rel="noopener noreferrer">SMS Instructions</a>
+      <span class="sms-note">Sign in to DioConnect first</span>
+    </span>
+  </div>
+  <!-- /SMS-LINK -->
+  </div>
 
   <nav class="nav" aria-label="Sections on this page">
     <p class="eyebrow">Twelve sections</p>

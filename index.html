@@ -51,6 +51,11 @@ h1{margin:0 0 16px;font-weight:300;font-size:clamp(2.4rem,1.9rem + 2.6vw,3.6rem)
 .rule p{margin:0;font-size:clamp(1.125rem,1.02rem + .5vw,1.4rem);line-height:1.45;color:var(--blue-deep);font-weight:500}
 @media (max-width:480px){.rule{grid-template-columns:1fr;padding:18px;margin-top:-48px}.rule .mark{display:none}}
 
+.aitools{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:22px 0 0}
+.ai-label{font-size:.875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.aibtn{display:inline-flex;align-items:center;min-height:48px;padding:10px 18px;border-radius:var(--r);background:var(--dio-red);color:#fff;text-decoration:none;font-weight:700;line-height:1.25;box-shadow:var(--shadow-sm)}
+.aibtn:hover{background:#9f232b}
+@media (max-width:640px){.aitools{flex-direction:column;align-items:stretch}.aibtn{justify-content:center}}
 /* ---------- Section nav ---------- */
 .nav{padding:34px 0 8px}
 .eyebrow{margin:0 0 12px;font-size:.875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -434,6 +439,14 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     <p>You are responsible for each of your comments: their accuracy, appropriateness, professional tone and quality.</p>
   </aside>
 
+  <!-- AI-TOOL-LINKS: the only place the two tool URLs live. Body links copy these (script at foot). -->
+  <div class="aitools" id="ai-tools" role="group" aria-label="School AI tools">
+    <span class="ai-label">AI tools</span>
+    <a class="aibtn" data-ai="writer" href="https://www.playlab.ai/project/clsmao68g0fz9tx9odwb9729z" target="_blank" rel="noopener noreferrer">Ultimate Report Writer</a>
+    <a class="aibtn" data-ai="checker" href="https://www.playlab.ai/project/cltozkrpf0wr3px9fx9zty57b" target="_blank" rel="noopener noreferrer">Ultimate Report Checker</a>
+  </div>
+  <!-- /AI-TOOL-LINKS -->
+
   <nav class="nav" aria-label="Sections on this page">
     <p class="eyebrow">Twelve sections</p>
     <ol class="chips">
@@ -578,7 +591,7 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
             <li>Keep an up-to-date class list handy, plus a printout of students with a Specialist Report (SpR).</li>
             <li>Use a question mark (?) wherever the student&rsquo;s name goes. Synergetic turns it into her name when you paste your comments in, and the AI checker recognises it too.</li>
             <li>Install Grammarly in your browser (highly recommended) and set it to UK English.</li>
-            <li>Optional: if report writing is a struggle, the Ultimate Report Writer (an AI tool) can help you draft.</li>
+            <li>Optional: if report writing is a struggle, the <a data-ai="writer" href="#ai-tools" target="_blank" rel="noopener noreferrer">Ultimate Report Writer</a> (an AI tool) can help you draft.</li>
           </ol>
           <p class="foot">Whether you write every word or use AI support, the comment must be personalised for each student and for each subject, and it must stay within the limits (about 580 characters for subjects, and no more than 640, or 900 for IB subject comments).</p>
         </article>
@@ -586,7 +599,7 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
         <article class="stage" id="st-2" role="tabpanel" aria-labelledby="tab-2">
           <h3>Stage 2: Check</h3>
           <ol>
-            <li>Copy your class set from the Google doc into the Ultimate Report Checker. Do one class set at a time. It saves your buddy time.</li>
+            <li>Copy your class set from the Google doc into the <a data-ai="checker" href="#ai-tools" target="_blank" rel="noopener noreferrer">Ultimate Report Checker</a>. Do one class set at a time. It saves your buddy time.</li>
             <li>Use the feedback to correct your comments in your Google doc.</li>
             <li>Email your report buddy a link to your Google doc and tell them the comments have been checked with the AI tool.</li>
             <li>Your buddy confirms in writing, to you and to the relevant manager (HOF or Dean), that the reports are appropriate and look good.</li>
@@ -1038,7 +1051,7 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
           <tr><th scope="row">Whether your subject uses a comment bank, or what applies to your comments</th><td data-label="Ask">Your HOF or line manager</td></tr>
           <tr><th scope="row">A name, spelling or convention question in a class set</th><td data-label="Ask">Your report buddy, then your HOF (teachers) or Dean (tutors)</td></tr>
           <tr><th scope="row">A Dean&rsquo;s comment</th><td data-label="Ask">Your Senior Line Manager</td></tr>
-          <tr><th scope="row">The Ultimate Report Writer or Ultimate Report Checker (access, how to use them)</th><td data-label="Ask">The staff member who manages the AI tools</td></tr>
+          <tr><th scope="row">The <a data-ai="writer" href="#ai-tools" target="_blank" rel="noopener noreferrer">Ultimate Report Writer</a> or <a data-ai="checker" href="#ai-tools" target="_blank" rel="noopener noreferrer">Ultimate Report Checker</a> (access, how to use them)</th><td data-label="Ask">The staff member who manages the AI tools</td></tr>
           <tr><th scope="row">A problem with the dashboard, Synergetic or your data</th><td data-label="Ask">Business Information Management, through a Helpdesk ticket</td></tr>
           <tr><th scope="row">The Dio Dictionary or reporting process</th><td data-label="Ask">Staff Handbook sections 8.0 and 8.1, or your HOF</td></tr>
         </tbody>
@@ -1056,6 +1069,10 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
 <script>
 (function(){
   document.documentElement.classList.add('js');
+  /* AI-TOOL-LINKS: body links take their address from the buttons at the top */
+  document.querySelectorAll('a[data-ai]:not(.aibtn)').forEach(function(a){
+    var b=document.querySelector('a.aibtn[data-ai="'+a.getAttribute('data-ai')+'"]'); if(b) a.href=b.href;
+  });
 
   var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var DAY=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];

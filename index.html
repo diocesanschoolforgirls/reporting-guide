@@ -1,0 +1,1170 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Reporting to Parents</title>
+<style>
+:root{
+  --dio-blue:#004990; --dio-light-blue:#aec5e7; --dio-red:#bf2f38;
+  --blue-deep:#00376c; --blue-deepest:#002c56;
+  --bg:#ffffff; --bg-alt:#f0f3fa; --inset:#e3e9f6; --border:#dededf;
+  --text:#414042; --muted:#5f5e61; --heading:#004990; --link:#1b5498;
+  --alert:#bf2f38; --alert-wash:#fbeff0; --orange-ink:#8f4b00; --orange-wash:#fdf3e6;
+  --green-ink:#2f6a25; --green-wash:#ecf6ea;
+  --font:"Gotham","Gotham Book","Montserrat","Avenir Next",Avenir,"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --shadow-sm:0 1px 2px rgba(0,55,108,.10);
+  --shadow-md:0 1px 2px rgba(0,55,108,.12),0 8px 24px rgba(0,55,108,.10);
+  --r:10px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg-alt);color:var(--text);font:400 1.0625rem/1.6 var(--font)}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--dio-blue);outline-offset:2px;border-radius:4px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+@media (max-width:480px){.wrap{padding:0 16px}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.js-only{display:none}
+.js .js-only{display:block}
+
+/* ---------- Header ---------- */
+.brandbar{background:#004890}
+.brandbar .wrap{padding-top:10px;padding-bottom:10px}
+.brandbar img{display:block;height:56px;width:auto;max-width:100%}
+.hero{background:linear-gradient(160deg,#004890 0%,#00376c 58%,#002c56 100%);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-140px;width:420px;height:420px;border-radius:50%;
+  border:56px solid rgba(174,197,231,.10);pointer-events:none}
+.hero::before{content:"";position:absolute;right:40px;top:90px;width:170px;height:170px;border-radius:50%;
+  border:22px solid rgba(174,197,231,.08);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-top:30px;padding-bottom:84px}
+.kicker{margin:0 0 14px;font-size:.875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dio-light-blue)}
+h1{margin:0 0 16px;font-weight:300;font-size:clamp(2.4rem,1.9rem + 2.6vw,3.6rem);line-height:1.05;letter-spacing:-.01em}
+.intro{max-width:44rem;margin:0;font-size:clamp(1.0625rem,1rem + .35vw,1.25rem);line-height:1.55;color:#e9effa}
+.intro + .intro{margin-top:10px;font-size:1rem;color:var(--dio-light-blue)}
+
+.rule{position:relative;z-index:2;margin:-56px 0 0;background:#fff;border-radius:var(--r);box-shadow:var(--shadow-md);
+  border-left:8px solid var(--dio-blue);padding:22px 26px 22px 24px;display:grid;grid-template-columns:auto 1fr;gap:6px 20px;align-items:start}
+.rule .mark{grid-row:1 / span 2;font-size:4.2rem;line-height:.8;font-weight:700;color:var(--dio-light-blue);font-family:Georgia,"Times New Roman",serif;padding-top:8px}
+.rule h2{margin:0;font-size:.875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dio-blue)}
+.rule p{margin:0;font-size:clamp(1.125rem,1.02rem + .5vw,1.4rem);line-height:1.45;color:var(--blue-deep);font-weight:500}
+@media (max-width:480px){.rule{grid-template-columns:1fr;padding:18px;margin-top:-48px}.rule .mark{display:none}}
+
+/* ---------- Section nav ---------- */
+.nav{padding:34px 0 8px}
+.eyebrow{margin:0 0 12px;font-size:.875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.chips li{margin:0}
+.chip{display:flex;align-items:center;gap:12px;min-height:52px;padding:8px 14px;border-radius:var(--r);text-decoration:none;font-size:1rem;line-height:1.25;font-weight:500;background:#fff;color:var(--dio-blue);border:1.5px solid var(--dio-blue);box-shadow:var(--shadow-sm)}
+.chip .n{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:.875rem;font-weight:700;background:var(--dio-blue);color:#fff}
+.chip:hover{background:var(--inset)}
+
+/* ---------- Sections ---------- */
+.sec{padding:48px 0 4px;scroll-margin-top:12px}
+.sec h2{margin:0;font-weight:300;font-size:clamp(1.7rem,1.4rem + 1.3vw,2.4rem);line-height:1.15;color:var(--heading)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 6px}
+.sec-head .no{flex:none;font-size:.875rem;font-weight:700;letter-spacing:.1em;color:var(--dio-red)}
+.sec-head .top{margin:-11px 0 -11px auto;padding:11px 6px;flex:none;font-size:.875rem;font-weight:500;color:var(--muted);text-decoration:none;white-space:nowrap}
+.sec-head .top:hover{color:var(--dio-blue);text-decoration:underline}
+.lede{max-width:46rem;margin:8px 0 22px}
+.sec h3.sub{margin:30px 0 10px;font-size:1.0625rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dio-blue)}
+.prose{max-width:46rem}
+.prose p{margin:0 0 14px}
+.callout{background:var(--inset);border-radius:var(--r);padding:16px 20px;max-width:46rem;margin:18px 0 0}
+.callout.alert{background:var(--alert-wash)}
+.callout.warm{background:var(--orange-wash)}
+.callout p{margin:0}
+.callout p + p{margin-top:8px}
+.callout strong{color:var(--blue-deep)}
+
+/* ---------- Key dates ---------- */
+.dates{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:760px){.dates{grid-template-columns:1fr}}
+.panel{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);padding:6px 0}
+.panel > h3{margin:0;padding:16px 22px 6px;font-size:.875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:72px 1fr auto;gap:4px 16px;align-items:center;padding:14px 22px;border-top:1px solid var(--border);position:relative}
+.tl li:first-child{border-top:0}
+.d{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;width:66px;padding:8px 0 7px;border-radius:8px;background:var(--bg-alt);color:var(--dio-blue)}
+.d b{font-size:1.65rem;font-weight:700;letter-spacing:-.02em}
+.d span{font-size:.875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.what{min-width:0}
+.what strong{display:block;font-weight:500;font-size:1.0625rem;line-height:1.35;color:var(--text)}
+.what em{font-style:normal;font-size:.9375rem;color:var(--muted)}
+.tag{justify-self:end;white-space:nowrap;font-size:.875rem;font-weight:700;letter-spacing:.04em;padding:4px 10px;border-radius:var(--r);background:#eceef2;color:#52515a}
+.tl li.past .d{background:#f1f2f5;color:#6c6b72}
+.tl li.past .what strong{color:#5a595e;font-weight:400}
+.tl li.next{background:linear-gradient(90deg,#e3e9f6,#f0f3fa);border-top-color:transparent;box-shadow:inset 6px 0 0 var(--dio-blue);margin:6px 0}
+.tl li.next .d{background:var(--dio-blue);color:#fff}
+.tl li.next .what strong{font-weight:700;color:var(--blue-deep);font-size:1.125rem}
+.tl li.next .tag{background:var(--dio-red);color:#fff}
+.tl li.next + li{border-top-color:transparent}
+@media (max-width:520px){
+  .tl li{grid-template-columns:62px 1fr;padding:14px 16px}
+  .d{width:58px}
+  .tag{grid-column:2;justify-self:start}
+}
+.nextnote{margin:0;padding:8px 22px 16px;font-size:1rem;color:var(--muted)}
+.nextnote:empty{display:none}
+.side{display:grid;gap:16px}
+.card{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);padding:18px 22px}
+.card h3{margin:0 0 8px;font-size:1.0625rem;font-weight:700;color:var(--dio-blue)}
+.card p{margin:0}
+.card p + p{margin-top:8px}
+.card.tint{background:var(--inset);box-shadow:none}
+details.more{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm)}
+details.more summary{cursor:pointer;list-style:none;padding:16px 22px;font-weight:700;color:var(--dio-blue);display:flex;justify-content:space-between;gap:12px;align-items:center;min-height:52px}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"";flex:none;width:9px;height:9px;border-right:2.5px solid var(--dio-blue);border-bottom:2.5px solid var(--dio-blue);transform:rotate(45deg);margin-top:-4px;transition:transform .15s}
+details.more[open] summary::after{transform:rotate(-135deg);margin-top:4px}
+.mini{list-style:none;margin:0;padding:0 22px 14px}
+.mini li{display:flex;gap:14px;padding:10px 0;border-top:1px solid var(--border);font-size:1rem}
+.mini li:first-child{border-top:0}
+.mini b{flex:none;min-width:8.6em;font-weight:500;color:#5a595e}
+.mini span{color:var(--muted)}
+
+
+/* ---------- Deadlines table (scrolls inside its own box) ---------- */
+.dlwrap{margin-top:30px}
+.dlwrap h3{margin:0 0 10px;font-size:1.0625rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dio-blue)}
+.dlscroll{overflow-x:auto;background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);max-width:100%}
+table.dl{border-collapse:collapse;min-width:820px;width:100%;font-size:.9375rem}
+table.dl th,table.dl td{padding:12px 14px;text-align:left;vertical-align:top;border-top:1px solid var(--border);line-height:1.45}
+table.dl thead th{background:var(--blue-deep);color:#fff;border-top:0;font-weight:700;font-size:.875rem;line-height:1.3}
+table.dl tbody th{font-weight:700;color:var(--dio-blue);min-width:11rem}
+table.dl td.na{color:#8a898d;text-align:center}
+table.dl tr.past th,table.dl tr.past td{color:#6c6b72;background:#fafafb}
+table.dl tr.past th{font-weight:500}
+table.dl tr.next th,table.dl tr.next td{background:#e3e9f6}
+table.dl tr.next th{box-shadow:inset 6px 0 0 var(--dio-blue);padding-left:20px}
+table.dl tr.next td:last-child{font-weight:700;color:var(--blue-deep)}
+@media (max-width:880px){
+  .dlscroll{overflow:visible;background:transparent;box-shadow:none;border-radius:0}
+  table.dl{min-width:0;font-size:1rem}
+  table.dl,table.dl tbody,table.dl tr,table.dl th,table.dl td{display:block;width:auto;min-width:0}
+  table.dl thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table.dl tbody tr{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);margin:0 0 12px;padding-bottom:8px;overflow:hidden}
+  table.dl th,table.dl td{border-top:0;padding:6px 16px 4px}
+  table.dl tbody th{min-width:0;padding:12px 16px 6px;font-size:1.0625rem}
+  table.dl td::before{content:attr(data-label);display:block;font-size:.875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+  table.dl td.na{display:none}
+  table.dl td:last-child{font-weight:700;color:var(--blue-deep)}
+  table.dl tr.past th,table.dl tr.past td,table.dl tr.next th,table.dl tr.next td{background:transparent}
+  table.dl tr.past{background:#fafafb}
+  table.dl tr.next{background:#e3e9f6;box-shadow:inset 6px 0 0 var(--dio-blue)}
+  table.dl tr.next th{box-shadow:none;padding-left:22px}
+  table.dl tr.next td{padding-left:22px}
+}
+.dlnote{margin:10px 0 0;font-size:1rem;color:var(--muted);max-width:50rem}
+.dlsmall{margin:6px 0 0;font-size:.9375rem;color:var(--muted);max-width:50rem}
+
+/* ---------- Stepper ---------- */
+.stepper{margin-top:6px}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;position:relative;align-items:start}
+html:not(.js) .tabs{display:none}
+.tab{appearance:none;border:0;background:transparent;font:inherit;color:inherit;text-align:left;cursor:pointer;padding:0 14px 0 0;display:flex;flex-direction:column;justify-content:flex-start;position:relative}
+.tab .rail{display:flex;align-items:center;margin-bottom:12px}
+.tab .num{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:1.35rem;font-weight:700;background:#fff;color:var(--dio-blue);border:3px solid var(--dio-light-blue);transition:all .15s}
+.tab .line{flex:1;height:4px;margin:0 8px 0 10px;background:var(--dio-light-blue);border-radius:2px;position:relative}
+.tab:last-child .line{display:none}
+.tab .verb{display:block;font-size:clamp(1.5rem,1.2rem + 1.4vw,2.2rem);font-weight:300;line-height:1.1;color:var(--dio-blue)}
+.tab .gist{display:block;margin-top:6px;font-size:1rem;line-height:1.45;color:var(--muted);padding-right:6px}
+.tab[aria-selected="true"] .num{background:var(--dio-blue);color:#fff;border-color:var(--dio-blue);box-shadow:0 0 0 5px rgba(0,73,144,.14)}
+.tab[aria-selected="true"] .verb{font-weight:700}
+.tab[aria-selected="true"] .gist{color:var(--text)}
+.tab:hover .num{border-color:var(--dio-blue)}
+.panels{margin-top:22px}
+html:not(.js) .panels{margin-top:0}
+.stage{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);padding:22px 26px 24px;border-top:5px solid var(--dio-blue)}
+.stage + .stage{margin-top:16px}
+.stage h3{margin:0 0 12px;font-size:1.0625rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dio-blue)}
+.stage ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.stage ol li{counter-increment:s;position:relative;padding:0 0 0 44px;margin:0 0 12px}
+.stage ol li:last-child{margin-bottom:0}
+.stage ol li::before{content:counter(s);position:absolute;left:0;top:1px;width:28px;height:28px;border-radius:50%;background:var(--inset);color:var(--dio-blue);font-weight:700;font-size:.875rem;display:grid;place-items:center}
+.stage .warn{display:block;margin-top:2px;color:var(--alert);font-weight:700}
+.stage .foot{margin:16px 0 0;padding:12px 16px;background:var(--bg-alt);border-radius:8px;font-size:1rem}
+.js [hidden].stage,.js [hidden].role{display:none}
+.js .stage + .stage{margin-top:0}
+@media (max-width:620px){
+  .tabs{grid-template-columns:1fr;gap:6px}
+  .tab{padding:12px 14px;border-radius:var(--r);background:#fff;box-shadow:var(--shadow-sm);display:grid;grid-template-columns:52px 1fr;column-gap:14px;align-items:center}
+  .tab .rail{margin:0;grid-row:1 / span 2}
+  .tab .line{display:none}
+  .tab .verb{font-size:1.4rem}
+  .tab .gist{margin-top:2px}
+  .tab[aria-selected="true"]{box-shadow:0 0 0 2px var(--dio-blue)}
+  .stage{padding:20px 18px}
+}
+
+/* ---------- Roles ---------- */
+.rtabs{display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 16px}
+.js .rtabs{display:grid}
+.rtab{appearance:none;font:inherit;cursor:pointer;text-align:center;background:#fff;color:var(--dio-blue);border:2px solid var(--dio-light-blue);border-radius:var(--r);padding:12px 8px;min-height:56px;font-weight:700;font-size:1.0625rem;line-height:1.2;box-shadow:var(--shadow-sm)}
+.rtab:hover{border-color:var(--dio-blue)}
+.rtab[aria-selected="true"]{background:var(--dio-blue);border-color:var(--dio-blue);color:#fff}
+@media (max-width:480px){.rtab{font-size:1rem;padding:10px 4px}}
+.role{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);padding:24px 26px 26px;border-top:5px solid var(--dio-blue)}
+.role + .role{margin-top:16px}
+.role > h3{margin:0 0 16px;font-weight:300;font-size:clamp(1.5rem,1.25rem + 1vw,2rem);color:var(--dio-blue);line-height:1.15}
+.role-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:22px;align-items:start}
+@media (max-width:760px){.role-grid{grid-template-columns:1fr}.role{padding:20px 18px}}
+.must{background:var(--inset);border-radius:var(--r);padding:16px 20px}
+.must h4{margin:0 0 8px;font-size:.875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dio-blue)}
+.must ul{margin:0;padding:0;list-style:none}
+.must li{position:relative;padding:0 0 0 26px;margin:0 0 8px}
+.must li:last-child{margin:0}
+.must li::before{content:"";position:absolute;left:3px;top:.45em;width:12px;height:7px;border-left:3px solid var(--dio-blue);border-bottom:3px solid var(--dio-blue);transform:rotate(-45deg)}
+.rows{margin:0;display:grid;gap:0}
+.rows div{padding:10px 0;border-top:1px solid var(--border)}
+.rows div:first-child{border-top:0;padding-top:0}
+.rows dt{margin:0 0 2px;font-size:.875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rows dd{margin:0}
+.rows .alsorow dd{color:var(--blue-deep);font-weight:500}
+.posternote{margin:18px 0 0;max-width:46rem;color:var(--muted)}
+
+/* ---------- Deadline chain ---------- */
+.chain{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0}
+.chain li{position:relative;padding:0 10px 0 0}
+.chain .node{display:flex;align-items:center;margin-bottom:12px}
+.chain .dot{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:1.1rem;background:var(--dio-blue);color:#fff;box-shadow:0 0 0 5px rgba(0,73,144,.14)}
+.chain li:last-child .dot{background:var(--dio-red);box-shadow:0 0 0 5px rgba(191,47,56,.14)}
+.chain .bar{flex:1;height:4px;margin:0 6px 0 10px;background:var(--dio-light-blue);border-radius:2px;position:relative}
+.chain .bar::after{content:"";position:absolute;right:-2px;top:50%;width:10px;height:10px;border-right:4px solid var(--dio-light-blue);border-top:4px solid var(--dio-light-blue);transform:translateY(-50%) rotate(45deg)}
+.chain li:last-child .bar{display:none}
+.chain b{display:block;font-size:1.1875rem;font-weight:700;color:var(--dio-blue);line-height:1.2}
+.chain span.s{display:block;font-size:1rem;color:var(--muted);margin-top:2px;line-height:1.4}
+@media (max-width:700px){
+  .chain{grid-template-columns:1fr}
+  .chain li{display:grid;grid-template-columns:44px 1fr;column-gap:16px;padding:0 0 22px;position:relative}
+  .chain .node{margin:0;display:block}
+  .chain .bar{position:absolute;left:19px;top:50px;bottom:6px;width:4px;height:auto;margin:0;flex:none}
+  .chain .bar::after{right:auto;left:50%;top:auto;bottom:-3px;transform:translateX(-50%) rotate(135deg)}
+  .chain li:last-child{padding-bottom:0}
+}
+.groups{display:grid;gap:16px;margin-top:6px}
+.gcard{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);padding:18px 22px 20px;border-top:5px solid var(--dio-blue)}
+.gcard h4{margin:0 0 12px;font-size:1.1875rem;font-weight:700;color:var(--dio-blue)}
+.gsteps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:0}
+.gsteps div{background:var(--bg-alt);border-radius:8px;padding:10px 12px}
+.gsteps dt{margin:0 0 4px;font-size:.875rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.gsteps dd{margin:0;font-size:1rem;line-height:1.4;color:var(--text)}
+.gsteps .none dd{color:var(--muted)}
+.gsteps .fin{background:var(--inset)}
+@media (max-width:880px){
+  .gsteps{grid-template-columns:1fr;gap:6px}
+  .gsteps div{display:grid;grid-template-columns:8.2rem 1fr;gap:4px 12px;align-items:baseline}
+  .gsteps dt{margin:0}
+}
+@media (max-width:480px){.gsteps div{grid-template-columns:1fr}.gcard{padding:16px 16px 18px}}
+
+/* ---------- Responsive tables (stack on narrow) ---------- */
+.tablewrap{overflow-x:auto;background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm)}
+table.rt{width:100%;border-collapse:collapse;font-size:1rem}
+table.rt caption{text-align:left;padding:14px 18px 4px;font-size:.875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+table.rt th,table.rt td{padding:14px 18px;text-align:left;vertical-align:top;border-top:1px solid var(--border);line-height:1.5}
+table.rt thead th{background:var(--blue-deep);color:#fff;border-top:0;font-size:.9375rem;font-weight:700}
+table.rt tbody th{font-weight:700;color:var(--dio-blue);background:var(--bg-alt);width:15%}
+table.rt td .tx{display:block;font-weight:700;color:var(--blue-deep)}
+table.rt td.muted{color:var(--muted)}
+@media (max-width:760px){
+  table.rt,table.rt tbody,table.rt tr,table.rt th,table.rt td,table.rt caption{display:block;width:auto}
+  table.rt thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table.rt tr{border-top:1px solid var(--border);padding-bottom:6px}
+  table.rt tr:first-child{border-top:0}
+  table.rt tbody th{width:auto;padding:12px 16px}
+  table.rt td{border-top:0;padding:8px 16px 4px}
+  table.rt td::before{content:attr(data-label);display:block;font-size:.875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+}
+table.rt.two tbody th{width:auto}
+table.rt.two td,table.rt.two th{width:50%}
+table.rt.help td{width:44%}
+table.rt.help tbody th{width:56%;color:var(--text);font-weight:500;background:#fff}
+@media (max-width:760px){table.rt.two td,table.rt.two th,table.rt.help td,table.rt.help tbody th{width:auto}}
+
+/* ---------- Good comment ---------- */
+.dodont{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:700px){.dodont{grid-template-columns:1fr}}
+.dd{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);padding:18px 22px;border-top:5px solid var(--green-ink)}
+.dd.no{border-top-color:var(--dio-red)}
+.dd h3{margin:0 0 10px;font-size:1.0625rem;font-weight:700;color:var(--green-ink)}
+.dd.no h3{color:#9f232b}
+.dd ul{margin:0;padding:0;list-style:none}
+.dd li{position:relative;padding:0 0 0 28px;margin:0 0 9px}
+.dd li:last-child{margin:0}
+.dd li::before{content:"";position:absolute;left:3px;top:.42em;width:13px;height:7px;border-left:3px solid var(--green-ink);border-bottom:3px solid var(--green-ink);transform:rotate(-45deg)}
+.dd.no li::before{border:0;width:3px;height:14px;left:7px;top:.35em;background:var(--dio-red);transform:rotate(45deg)}
+.dd.no li::after{content:"";position:absolute;left:7px;top:.35em;width:3px;height:14px;background:var(--dio-red);transform:rotate(-45deg)}
+.examples{display:grid;gap:14px}
+.ex{margin:0;background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);padding:16px 22px 18px;border-left:6px solid var(--dio-light-blue)}
+.ex figcaption{margin:0 0 6px;font-size:.875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dio-blue)}
+.ex blockquote{margin:0;font-size:1.0625rem;line-height:1.65}
+
+/* ---------- Checker catches ---------- */
+.catch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:700px){.catch{grid-template-columns:1fr}}
+.cc{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);padding:18px 22px}
+.cc h3{margin:0 0 8px;font-size:1.0625rem;font-weight:700;color:var(--dio-blue)}
+.cc ul{margin:0;padding:0 0 0 20px}
+.cc li{margin:0 0 6px}
+.cc li:last-child{margin:0}
+.cc.wide{grid-column:1 / -1}
+.cc.not{background:var(--orange-wash);box-shadow:none}
+.cc.not h3{color:var(--orange-ink)}
+.cc.not p{margin:0}
+
+/* ---------- Dictionary ---------- */
+.dsearch{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-md);padding:18px 22px;margin:0 0 22px}
+.dsearch label{display:block;font-weight:700;color:var(--dio-blue);margin:0 0 8px}
+.dsearch input{width:100%;font:400 1.0625rem/1.4 var(--font);color:var(--text);background:#fbfcfe;border:1.5px solid #b9c3d6;border-radius:var(--r);padding:12px 14px;min-height:48px}
+.dsearch input:focus{outline:3px solid rgba(0,73,144,.35);border-color:var(--dio-blue);background:#fff}
+.dcount{margin:8px 0 0;font-size:1rem;color:var(--muted)}
+.dgroup{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);padding:18px 22px 14px;margin:0 0 16px}
+.dgroup h3{margin:0 0 10px;font-size:1.0625rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dio-blue)}
+ul.dict{margin:0;padding:0;list-style:none}
+ul.dict li{padding:8px 0;border-top:1px solid var(--border);max-width:50rem}
+ul.dict li:first-child{border-top:0}
+ul.dict li b{color:var(--blue-deep)}
+ul.dict.cols{columns:2;column-gap:36px}
+ul.dict.cols li{break-inside:avoid;max-width:none}
+@media (max-width:760px){ul.dict.cols{columns:1}}
+.dgroup[hidden],ul.dict li[hidden]{display:none}
+.dnone{margin:0 0 16px;padding:16px 20px;background:var(--orange-wash);border-radius:var(--r);color:#5b3300}
+.dnone[hidden]{display:none}
+mark{background:#ffe9a8;color:inherit;border-radius:3px;padding:0 1px}
+
+/* ---------- Dashboards ---------- */
+.dash{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-md);overflow:hidden}
+.dash .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:10px 24px;padding:20px 24px;border-top:1px solid var(--border);align-items:center}
+.dash .row:first-child{border-top:0}
+.dash .period{font-weight:700;color:var(--blue-deep);font-size:1.125rem}
+.dash .row.live{background:linear-gradient(90deg,#e3e9f6,#f0f3fa);box-shadow:inset 6px 0 0 var(--dio-blue)}
+.dash .row.soon .period{font-weight:500;color:var(--muted)}
+.dash .row.soon .st{color:var(--muted);font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:12px 20px;border-radius:var(--r);background:var(--dio-blue);color:#fff;text-decoration:none;font-weight:700;line-height:1.3;box-shadow:var(--shadow-sm)}
+.btn:hover{background:var(--blue-deep)}
+.btn::after{content:"";flex:none;width:9px;height:9px;border-right:3px solid #fff;border-top:3px solid #fff;transform:rotate(45deg)}
+.dash .hint{margin:8px 0 0;font-size:1rem;color:var(--muted)}
+@media (max-width:640px){.dash .row{grid-template-columns:1fr;padding:18px 16px}}
+.dgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+@media (max-width:700px){.dgrid{grid-template-columns:1fr}}
+.dgrid .cc.wide p{margin:0}
+
+/* ---------- Footer ---------- */
+.spacer{height:40px}
+.endnote{padding:26px 0 44px;font-size:1rem;color:var(--muted);border-top:1px solid var(--border);margin-top:30px}
+.endnote p{margin:0 0 8px;max-width:46rem}
+
+/* ---------- Checker ---------- */
+html:not(.js) .checker{display:none}
+.checker{background:#fff;border-radius:var(--r);box-shadow:var(--shadow-md);padding:24px 26px 22px;position:relative;margin-top:22px}
+.checker label.lbl{display:block;font-weight:700;color:var(--dio-blue);margin:0 0 8px}
+textarea{width:100%;min-height:170px;resize:vertical;font:400 1.0625rem/1.55 var(--font);color:var(--text);background:#fbfcfe;border:1.5px solid #b9c3d6;border-radius:var(--r);padding:14px 16px}
+textarea:focus{outline:3px solid rgba(0,73,144,.35);border-color:var(--dio-blue);background:#fff}
+.privacy{margin:8px 0 0;font-size:1rem;color:var(--muted)}
+.readout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 6px}
+.stat{background:var(--bg-alt);border-radius:var(--r);padding:12px 16px}
+.stat .v{display:block;font-size:2rem;font-weight:300;line-height:1.05;color:var(--dio-blue);font-variant-numeric:tabular-nums}
+.stat .k{display:block;margin-top:4px;font-size:.9375rem;color:var(--muted)}
+.stat .v small{font-size:1rem;font-weight:400;color:var(--muted)}
+@media (max-width:520px){.readout{grid-template-columns:1fr 1fr}.stat:first-child{grid-column:1 / -1}.checker{padding:20px 16px}}
+.meter{position:relative;margin:34px 4px 40px}
+.track{height:16px;border-radius:999px;background:var(--inset);overflow:hidden;position:relative}
+.fill{height:100%;width:0;background:var(--dio-blue);border-radius:999px;transition:width .12s linear,background-color .12s}
+.fill.warn{background:#d97a00}
+.fill.over{background:var(--dio-red)}
+.tick{position:absolute;top:-6px;bottom:-6px;width:0;border-left:2px solid var(--blue-deepest)}
+.tick span{position:absolute;font-size:.875rem;font-weight:700;color:var(--blue-deepest);white-space:nowrap;transform:translateX(-50%);left:0}
+.tick.tgt span{bottom:100%;margin-bottom:3px}
+.tick.lim span{top:100%;margin-top:3px}
+.tick.lim{border-left-style:solid;border-color:var(--dio-red)}
+.tick.lim span{color:#9f232b}
+.tick.ib{border-left-style:dashed}
+.tick[hidden]{display:none}
+.opts{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin:4px 0 14px}
+.toggle{display:inline-flex;align-items:center;gap:10px;min-height:44px;cursor:pointer;font-weight:500}
+.toggle input{width:22px;height:22px;accent-color:var(--dio-blue);margin:0;flex:none}
+.verdict{display:flex;gap:12px;align-items:flex-start;border-radius:var(--r);padding:14px 16px;background:var(--bg-alt);color:var(--text)}
+.verdict .ic{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.95rem;background:var(--dio-blue);color:#fff}
+.verdict b{display:block}
+.verdict.ok{background:var(--green-wash)} .verdict.ok .ic{background:var(--green-ink)}
+.verdict.ok b{color:var(--green-ink)}
+.verdict.warn{background:var(--orange-wash)} .verdict.warn .ic{background:#b35f00}
+.verdict.warn b{color:var(--orange-ink)}
+.verdict.over{background:var(--alert-wash)} .verdict.over .ic{background:var(--dio-red)}
+.verdict.over b{color:#9f232b}
+.flags{margin:10px 0 0;display:grid;gap:8px}
+.flag{display:flex;gap:10px;align-items:flex-start;border-radius:var(--r);padding:10px 14px;background:var(--orange-wash);color:#5b3300;font-size:1rem}
+.flag b{color:var(--orange-ink)}
+.flag[hidden]{display:none}
+.nameNote{margin:14px 0 0;padding:12px 16px;background:var(--inset);border-radius:var(--r);font-size:1rem;color:var(--blue-deepest)}
+.nameNote b{color:var(--dio-blue)}
+code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6;border-radius:4px;padding:0 6px}
+.limits{margin:16px 0 0;font-size:.9375rem;color:var(--muted)}
+
+@media print{
+  .hero{background:#fff;color:#000}.hero::before,.hero::after{display:none}
+  .rtabs,.tabs,.dsearch,.chips{display:none}
+  .stage[hidden],.role[hidden]{display:block!important}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brandbar"><div class="wrap"><img src="data:image/jpeg;base64,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" alt="Diocesan School for Girls" width="214" height="56"></div></div>
+  <div class="hero">
+    <div class="wrap">
+      <p class="kicker">A practical guide for Dio teachers, tutors and deans, Years 7&ndash;13</p>
+      <h1>Reporting to Parents</h1>
+      <p class="intro">A report is how a family hears, in writing, how their daughter is getting on and what she can do next. It is worth getting right.</p>
+      <p class="intro">This page gathers the dates, the three-stage process, who does what, comment lengths, the length checker, the Dio Dictionary and the dashboards in one place.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <aside class="rule" aria-labelledby="rule-h">
+    <span class="mark" aria-hidden="true">&ldquo;</span>
+    <h2 id="rule-h">The one rule above the rest</h2>
+    <p>You are responsible for each of your comments: their accuracy, appropriateness, professional tone and quality.</p>
+  </aside>
+
+  <nav class="nav" aria-label="Sections on this page">
+    <p class="eyebrow">Twelve sections</p>
+    <ol class="chips">
+      <li><a class="chip" href="#why"><span class="n">1</span><span>Why reports matter</span></a></li>
+      <li><a class="chip" href="#dates"><span class="n">2</span><span>Key dates 2026</span></a></li>
+      <li><a class="chip" href="#stages"><span class="n">3</span><span>The three stages</span></a></li>
+      <li><a class="chip" href="#who"><span class="n">4</span><span>Who does what</span></a></li>
+      <li><a class="chip" href="#chain"><span class="n">5</span><span>The deadline chain</span></a></li>
+      <li><a class="chip" href="#length"><span class="n">6</span><span>How long should a comment be?</span></a></li>
+      <li><a class="chip" href="#good"><span class="n">7</span><span>A good comment</span></a></li>
+      <li><a class="chip" href="#catches"><span class="n">8</span><span>What the BIM dashboard will catch</span></a></li>
+      <li><a class="chip" href="#dictionary"><span class="n">9</span><span>The Dio Dictionary</span></a></li>
+      <li><a class="chip" href="#tereo"><span class="n">10</span><span>Te reo M&#257;ori in reports</span></a></li>
+      <li><a class="chip" href="#dashboards"><span class="n">11</span><span>Dashboards</span></a></li>
+      <li><a class="chip" href="#help"><span class="n">12</span><span>Help</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- 1 -->
+  <section class="sec" id="why" aria-labelledby="why-h">
+    <div class="sec-head"><span class="no">01</span><h2 id="why-h">Why reports matter</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="prose">
+      <p>A report is how a family hears, in writing, how their daughter is getting on and what she can do next. It is worth getting right. Many people will help you check your comments, but one rule sits above the rest: <strong>you are responsible for each of your comments</strong> &mdash; their accuracy, appropriateness, professional tone and quality.</p>
+      <p>This page gathers the dates, the three-stage process, who does what, comment lengths, the length checker, the Dio Dictionary and the dashboards in one place.</p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="sec" id="dates" aria-labelledby="dates-h">
+    <div class="sec-head"><span class="no">02</span><h2 id="dates-h">Key dates 2026</h2><a class="top" href="#top">Back to top</a></div>
+    <p class="lede">Reports are issued on these dates. Comment deadlines for the Senior (Years 12&ndash;13) Term 4 rounds sit on the BIM dashboard (see <a href="#dashboards">Dashboards</a> below); the table below gives the dates for every round. Report and meeting deadlines are also published on DioConnect.</p>
+
+    <div class="dates">
+      <div class="panel">
+        <h3>Reports issued</h3>
+        <ul class="tl" id="tl-reports">
+          <li data-date="2026-03-19"><div class="d"><b>19</b><span>Mar</span></div><div class="what"><strong>Initial Progress Reports</strong><em>Thursday &middot; Years 7&ndash;13</em></div></li>
+          <li data-date="2026-07-03"><div class="d"><b>3</b><span>Jul</span></div><div class="what"><strong>Full Reports (mid-year)</strong><em>Friday</em></div></li>
+          <li data-date="2026-10-16"><div class="d"><b>16</b><span>Oct</span></div><div class="what"><strong>Full Reports, Year 13 IB Diploma</strong><em>Friday</em></div></li>
+          <li data-date="2026-10-30"><div class="d"><b>30</b><span>Oct</span></div><div class="what"><strong>Full Reports, Years 12 and 13 NCEA</strong><em>Friday</em></div></li>
+          <li data-date="2026-12-04"><div class="d"><b>4</b><span>Dec</span></div><div class="what"><strong>Full Reports, Year 11</strong><em>Friday</em></div></li>
+          <li data-date="2026-12-04"><div class="d"><b>4</b><span>Dec</span></div><div class="what"><strong>Full Reports, Year 12 IB Diploma</strong><em>Friday</em></div></li>
+          <li data-date="2026-12-07"><div class="d"><b>7</b><span>Dec</span></div><div class="what"><strong>Full Reports, Years 7&ndash;10</strong><em>Monday</em></div></li>
+        </ul>
+        <p class="nextnote" id="nextnote"></p>
+      </div>
+
+      <div class="side">
+        <details class="more" id="meetings">
+          <summary>Parent evenings and interviews linked to reports</summary>
+          <ul class="mini" id="mini-meetings">
+            <li data-date="2026-03-31"><b>Tue 31 Mar</b><span>Initial Progress Report Meetings, 1:45&ndash;6 pm</span></li>
+            <li data-date="2026-07-28"><b>Tue 28 Jul</b><span>Parent Interviews A to I, 1:45&ndash;6 pm</span></li>
+            <li data-date="2026-07-30"><b>Thu 30 Jul</b><span>Parent Interviews J to Q, 1:45&ndash;6 pm</span></li>
+            <li data-date="2026-08-03"><b>Mon 3 Aug</b><span>Parent Interviews R to Z, 1:45&ndash;6 pm</span></li>
+          </ul>
+        </details>
+        <div class="card tint">
+          <h3>When parents get in touch</h3>
+          <p>Parents are asked to start with the tutor teacher, then the year level Dean, then the Head of Faculty (subject matters) or Dean (pastoral matters).</p>
+          <p><strong>Please aim for a 24-hour turnaround on parent emails.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dlwrap">
+      <h3>Report deadlines 2026</h3>
+      <div class="dlscroll" tabindex="0" role="region" aria-label="Report deadlines 2026">
+        <table class="dl">
+          <thead><tr><th scope="col">Type of report</th><th scope="col">Entered &amp; checked by 8:30 am</th><th scope="col">To tutors 8:30 am</th><th scope="col">To deans 8:30 am</th><th scope="col">To Principal / Head of Senior School</th><th scope="col">Issued / online 3:25 pm</th></tr></thead>
+          <tbody>
+          <tr data-issued="2026-03-19"><th scope="row">Y7&ndash;13 Initial Progress</th><td data-label="Entered &amp; checked by 8:30 am">Tue 17 March</td><td data-label="To tutors 8:30 am" class="na" aria-label="No date">&ndash;</td><td data-label="To deans 8:30 am" class="na" aria-label="No date">&ndash;</td><td data-label="To Principal / Head of Senior School" class="na" aria-label="No date">&ndash;</td><td data-label="Issued / online 3:25 pm">Thu 19 March</td></tr>
+          <tr data-issued="2026-07-03"><th scope="row">Y7&ndash;10 Full (digital)</th><td data-label="Entered &amp; checked by 8:30 am">Mon 22 June</td><td data-label="To tutors 8:30 am">Mon 22 June</td><td data-label="To deans 8:30 am">Wed 24 June</td><td data-label="To Principal / Head of Senior School">JHS deans all finished by Wed 1 July</td><td data-label="Issued / online 3:25 pm">Fri 3 July</td></tr>
+          <tr data-issued="2026-07-03"><th scope="row">Y11&ndash;13 Full (printed)</th><td data-label="Entered &amp; checked by 8:30 am">Mon 22 June</td><td data-label="To tutors 8:30 am">Mon 22 June</td><td data-label="To deans 8:30 am">Wed 24 June</td><td data-label="To Principal / Head of Senior School">Senior School deans: at least 2 tutor groups each by Fri 26 June; 2 more by Mon 29 June; finish by Wed 1 July</td><td data-label="Issued / online 3:25 pm">Fri 3 July</td></tr>
+          <tr data-issued="2026-09-25"><th scope="row">All Y11&ndash;13 grades entered for grades-only report</th><td data-label="Entered &amp; checked by 8:30 am">Fri 25 September</td><td data-label="To tutors 8:30 am" class="na" aria-label="No date">&ndash;</td><td data-label="To deans 8:30 am" class="na" aria-label="No date">&ndash;</td><td data-label="To Principal / Head of Senior School" class="na" aria-label="No date">&ndash;</td><td data-label="Issued / online 3:25 pm" class="na" aria-label="No date">&ndash;</td></tr>
+          <tr data-issued="2026-10-16"><th scope="row">Y13 IB Diploma Full (printed)</th><td data-label="Entered &amp; checked by 8:30 am">Mon 12 October</td><td data-label="To tutors 8:30 am">Mon 12 October</td><td data-label="To deans 8:30 am">Tue 13 October</td><td data-label="To Principal / Head of Senior School">Thu 15 October</td><td data-label="Issued / online 3:25 pm">Fri 16 October</td></tr>
+          <tr data-issued="2026-10-30"><th scope="row">Y12&ndash;13 NCEA Full (printed)</th><td data-label="Entered &amp; checked by 8:30 am">Mon 19 October</td><td data-label="To tutors 8:30 am">Tue 20 October</td><td data-label="To deans 8:30 am">Wed 21 October</td><td data-label="To Principal / Head of Senior School">Y12 and Y13 deans: at least 2 tutor groups each by Fri 23 October; 2 more by Tue 27 October*; finish by Wed 28 October</td><td data-label="Issued / online 3:25 pm">Fri 30 October</td></tr>
+          <tr data-issued="2026-12-04"><th scope="row">Y11 Full (printed)</th><td data-label="Entered &amp; checked by 8:30 am">Thu 26 November</td><td data-label="To tutors 8:30 am">Thu 26 November</td><td data-label="To deans 8:30 am">Fri 27 November</td><td data-label="To Principal / Head of Senior School">Y11 dean: at least 2 tutor groups to the Head of Senior School by Mon 30 November; 2 more by Tue 1 December; finish by Thu 3 December</td><td data-label="Issued / online 3:25 pm">Fri 4 December</td></tr>
+          <tr data-issued="2026-12-04"><th scope="row">Y12 IB Diploma Full (printed)</th><td data-label="Entered &amp; checked by 8:30 am">Mon 30 November</td><td data-label="To tutors 8:30 am">Mon 30 November</td><td data-label="To deans 8:30 am">Tue 1 December</td><td data-label="To Principal / Head of Senior School">All Y12 Diploma reports to the Head of Senior School by Wed 2 December</td><td data-label="Issued / online 3:25 pm">Fri 4 December</td></tr>
+          <tr data-issued="2026-12-07"><th scope="row">Y7&ndash;10 Full (digital)</th><td data-label="Entered &amp; checked by 8:30 am">Tue 24 November</td><td data-label="To tutors 8:30 am">Tue 24 November</td><td data-label="To deans 8:30 am">Thu 26 November</td><td data-label="To Principal / Head of Senior School">JHS deans all finished by Thu 3 December</td><td data-label="Issued / online 3:25 pm">Mon 7 December</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="dlnote">*Monday 26 October is Labour Day, so this batch falls on Tuesday 27 October. JHS = Junior High School.</p>
+      <p class="dlsmall">Deadlines from the Head of Senior School&rsquo;s 2026 schedule (as at 26 November 2025), with the Labour Day correction.</p>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="sec" id="stages" aria-labelledby="stages-h">
+    <div class="sec-head"><span class="no">03</span><h2 id="stages-h">The three stages</h2><a class="top" href="#top">Back to top</a></div>
+    <p class="lede">The process is the same for subject teachers, tutors and deans. The exception is subjects that are permitted to use proofread comment banks already in Synergetic at mid-year and end of year. If you are unsure, check with your HOF or line manager.</p>
+
+    <div class="stepper" id="stepper">
+      <div class="tabs" role="tablist" aria-label="Three stages of writing reports">
+        <button class="tab" role="tab" id="tab-1" aria-controls="st-1" aria-selected="true" type="button">
+          <span class="rail"><span class="num">1</span><span class="line"></span></span>
+          <span><span class="verb">Write</span><span class="gist">In a Google doc, with a ? for each name. Never straight into Synergetic.</span></span>
+        </button>
+        <button class="tab" role="tab" id="tab-2" aria-controls="st-2" aria-selected="false" type="button">
+          <span class="rail"><span class="num">2</span><span class="line"></span></span>
+          <span><span class="verb">Check</span><span class="gist">One class set at a time through the AI checker, then your buddy confirms in writing.</span></span>
+        </button>
+        <button class="tab" role="tab" id="tab-3" aria-controls="st-3" aria-selected="false" type="button">
+          <span class="rail"><span class="num">3</span><span class="line"></span></span>
+          <span><span class="verb">Finish</span><span class="gist">Then, and only then, paste into Synergetic and tell your HOF.</span></span>
+        </button>
+      </div>
+
+      <div class="panels">
+        <article class="stage" id="st-1" role="tabpanel" aria-labelledby="tab-1">
+          <h3>Stage 1: Write</h3>
+          <ol>
+            <li>Write your comments in a Google doc (recommended, or similar). <span class="warn">Do not type straight into Synergetic.</span> Checking for errors is much harder and slower there, and that is exactly what this process avoids.</li>
+            <li>Keep an up-to-date class list handy, plus a printout of students with a Specialist Report (SpR).</li>
+            <li>Use a question mark (?) wherever the student&rsquo;s name goes. Synergetic turns it into her name when you paste your comments in, and the AI checker recognises it too.</li>
+            <li>Install Grammarly in your browser (highly recommended) and set it to UK English.</li>
+            <li>Optional: if report writing is a struggle, the Ultimate Report Writer (an AI tool) can help you draft.</li>
+          </ol>
+          <p class="foot">Whether you write every word or use AI support, the comment must be personalised for each student and for each subject, and it must stay within the limits (about 580 characters for subjects, and no more than 640, or 900 for IB subject comments).</p>
+        </article>
+
+        <article class="stage" id="st-2" role="tabpanel" aria-labelledby="tab-2">
+          <h3>Stage 2: Check</h3>
+          <ol>
+            <li>Copy your class set from the Google doc into the Ultimate Report Checker. Do one class set at a time. It saves your buddy time.</li>
+            <li>Use the feedback to correct your comments in your Google doc.</li>
+            <li>Email your report buddy a link to your Google doc and tell them the comments have been checked with the AI tool.</li>
+            <li>Your buddy confirms in writing, to you and to the relevant manager (HOF or Dean), that the reports are appropriate and look good.</li>
+          </ol>
+        </article>
+
+        <article class="stage" id="st-3" role="tabpanel" aria-labelledby="tab-3">
+          <h3>Stage 3: Finish</h3>
+          <ol>
+            <li>Then, and only then, copy and paste your comments into Synergetic (Synweb).</li>
+            <li>Email your HOF to confirm completion. The HOF will do some spot checks on the accuracy of comments and grade entries.</li>
+            <li>Done.</li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="sec" id="who" aria-labelledby="who-h">
+    <div class="sec-head"><span class="no">04</span><h2 id="who-h">Who does what</h2><a class="top" href="#top">Back to top</a></div>
+    <p class="lede">Everyone has a role in writing and checking reports. Find yours below.</p>
+
+    <div class="rtabs" role="tablist" aria-label="Choose your role">
+      <button class="rtab" role="tab" id="rt-1" aria-controls="role-1" aria-selected="true" type="button">Subject teacher</button>
+      <button class="rtab" role="tab" id="rt-2" aria-controls="role-2" aria-selected="false" type="button">Tutor</button>
+      <button class="rtab" role="tab" id="rt-3" aria-controls="role-3" aria-selected="false" type="button">Dean</button>
+    </div>
+
+    <article class="role" id="role-1" role="tabpanel" aria-labelledby="rt-1">
+      <h3>Subject teacher</h3>
+      <div class="role-grid">
+        <div class="must"><h4>You must</h4><ul>
+          <li>Write subject comments in draft (for example in a Google doc)</li>
+          <li>Enter all relevant grades</li>
+          <li>Use AI to proofread your comments</li>
+          <li>Correct errors in your comments</li>
+        </ul></div>
+        <dl class="rows">
+          <div><dt>Supporting you</dt><dd>The AI writer, the AI checker, the Dio Dictionary, the Staff Handbook.</dd></div>
+          <div><dt>Checked by</dt><dd>Your faculty buddy (assigned by your HOF), looking for errors in names, spelling, grammar, conventions and grades entry. AI use is recommended.</dd></div>
+          <div><dt>Sign off</dt><dd>Your buddy confirms in writing to you and your HOF that all checks have been made and the reports are error-free.</dd></div>
+          <div><dt>Finally</dt><dd>After all checks and corrections, copy and paste your comments into Synergetic.</dd></div>
+          <div class="alsorow"><dt>Also</dt><dd>The HOF will do some spot checks of subject comments in Synergetic. Don&rsquo;t be the hot spot!</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="role" id="role-2" role="tabpanel" aria-labelledby="rt-2">
+      <h3>Tutor</h3>
+      <div class="role-grid">
+        <div class="must"><h4>You must</h4><ul>
+          <li>Write tutor comments in draft (for example in a Google doc)</li>
+          <li>Use AI to proofread your comments</li>
+          <li>Correct errors in your comments</li>
+        </ul></div>
+        <dl class="rows">
+          <div><dt>Supporting you</dt><dd>The AI writer, the AI checker, the Dio Dictionary, the Staff Handbook.</dd></div>
+          <div><dt>Checked by</dt><dd>Your tutor buddy (assigned by your Dean), looking for errors in names, spelling, grammar and conventions. AI use is recommended.</dd></div>
+          <div><dt>Sign off</dt><dd>Your buddy confirms in writing to you and your Dean that all checks have been made and the reports are error-free.</dd></div>
+          <div><dt>Finally</dt><dd>After all checks and corrections, copy and paste your comments into Synergetic.</dd></div>
+          <div class="alsorow"><dt>Also</dt><dd>The Dean will do some spot checks of tutor comments in Synergetic. Don&rsquo;t be the hot spot!</dd></div>
+          <div><dt>Additionally</dt><dd>If you see major issues (name, spelling) in a subject report, let the teacher know. These should have been flagged by the buddy or HOF if the teacher had not already corrected them, and the teacher is ultimately responsible for their comment.</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="role" id="role-3" role="tabpanel" aria-labelledby="rt-3">
+      <h3>Dean</h3>
+      <div class="role-grid">
+        <div class="must"><h4>You must</h4><ul>
+          <li>Write dean&rsquo;s comments in draft (for example in a Google doc)</li>
+          <li>Use AI to proofread your comments</li>
+          <li>Correct errors in your comments</li>
+        </ul></div>
+        <dl class="rows">
+          <div><dt>Supporting you</dt><dd>The AI writer, the AI checker, the Dio Dictionary, the Staff Handbook.</dd></div>
+          <div><dt>Checked by</dt><dd>Your Senior Line Manager, looking for errors in names, spelling, grammar and conventions. AI use is recommended.</dd></div>
+          <div><dt>Finally</dt><dd>After all checks and corrections, copy and paste your comments into Synergetic.</dd></div>
+          <div class="alsorow"><dt>Also</dt><dd>The SLT will do some spot checks in Synergetic and on final prints. Don&rsquo;t be the hot spot!</dd></div>
+          <div><dt>Additionally</dt><dd>If you see major issues (name, spelling) in any report, let the teacher know. These should have been flagged by the buddy or HOF if the teacher had not already corrected them, and the teacher is ultimately responsible for their comment.</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <p class="posternote">A poster version of this information, organised by role, is also available.</p>
+  </section>
+
+  <!-- 5 -->
+  <section class="sec" id="chain" aria-labelledby="chain-h">
+    <div class="sec-head"><span class="no">05</span><h2 id="chain-h">The deadline chain</h2><a class="top" href="#top">Back to top</a></div>
+    <p class="lede">Each report group moves along the same chain:</p>
+
+    <ol class="chain" aria-label="The deadline chain">
+      <li><div class="node"><span class="dot">1</span><span class="bar"></span></div><div><b>Comments due</b><span class="s">Teachers, 8:30 am</span></div></li>
+      <li><div class="node"><span class="dot">2</span><span class="bar"></span></div><div><b>To tutors</b></div></li>
+      <li><div class="node"><span class="dot">3</span><span class="bar"></span></div><div><b>To deans</b></div></li>
+      <li><div class="node"><span class="dot">4</span><span class="bar"></span></div><div><b>Signing</b><span class="s">NCEA reports</span></div></li>
+      <li><div class="node"><span class="dot">5</span><span class="bar"></span></div><div><b>Issued</b></div></li>
+    </ol>
+
+    <p class="lede" style="margin-top:22px">The table shows when reports move on to tutors and deans. Separately, teacher, tutor and dean comments each have their own deadline. A missing comment only counts as overdue once its own deadline has passed. The exact dates for the Senior (Years 12&ndash;13) Term 4 rounds are on the BIM dashboard. For other rounds, the table above gives the dates reports move on to tutors and deans.</p>
+
+    <h3 class="sub">Worked example: 2026 Term 4, Years 12 and 13</h3>
+    <div class="groups">
+      <article class="gcard">
+        <h4>Year 13 IB</h4>
+        <dl class="gsteps">
+          <div><dt>Teacher comments</dt><dd>Mon 12 Oct,&nbsp;8:30&nbsp;am</dd></div>
+          <div><dt>Tutor comments</dt><dd>Tue 13 Oct,&nbsp;8:30&nbsp;am</dd></div>
+          <div><dt>Dean comments</dt><dd>Wed 14 Oct,&nbsp;8:30&nbsp;am</dd></div>
+          <div class="none"><dt>Signing</dt><dd>See table above</dd></div>
+          <div class="fin"><dt>Issued</dt><dd>Fri 16 Oct (done)</dd></div>
+        </dl>
+      </article>
+      <article class="gcard">
+        <h4>Years 12 and 13 NCEA</h4>
+        <dl class="gsteps">
+          <div><dt>Teacher comments</dt><dd>Mon 19 Oct,&nbsp;8:30&nbsp;am</dd></div>
+          <div><dt>Tutor comments</dt><dd>Wed 21 Oct,&nbsp;8:30&nbsp;am</dd></div>
+          <div><dt>Dean comments</dt><dd>Fri 23 Oct, 2 pm (two batches, see below)</dd></div>
+          <div><dt>Signing</dt><dd>Batch 1 Fri 23 Oct; batch 2 Tue 27 Oct; all signed Wed 28 Oct</dd></div>
+          <div class="fin"><dt>Issued</dt><dd>Fri 30 Oct</dd></div>
+        </dl>
+      </article>
+      <article class="gcard">
+        <h4>Year 12 IB</h4>
+        <dl class="gsteps">
+          <div><dt>Teacher comments</dt><dd>Mon 30 Nov,&nbsp;8:30&nbsp;am</dd></div>
+          <div><dt>Tutor comments</dt><dd>Tue 1 Dec,&nbsp;8:30&nbsp;am</dd></div>
+          <div><dt>Dean comments</dt><dd>Tue 1 Dec,&nbsp;8:30&nbsp;am</dd></div>
+          <div class="none"><dt>Signing</dt><dd>See table above</dd></div>
+          <div class="fin"><dt>Issued</dt><dd>Fri 4 Dec</dd></div>
+        </dl>
+      </article>
+    </div>
+
+    <div class="callout">
+      <p><strong>Years 12 and 13 NCEA dean comments, two batches:</strong> the first by 2 pm Thursday 22 October (printed Friday 23 October), the rest by 2 pm Friday 23 October.</p>
+      <p><strong>Signing:</strong> Year 12 reports are signed by the Head of Senior School, Year 13 by the Principal. Monday 26 October is Labour Day, which is why signing batch 2 falls on Tuesday 27 October.</p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="sec" id="length" aria-labelledby="length-h">
+    <div class="sec-head"><span class="no">06</span><h2 id="length-h">How long should a comment be?</h2><a class="top" href="#top">Back to top</a></div>
+    <p class="lede">Lengths are a guide, with a hard technical limit behind them. <strong>Synergetic&rsquo;s usual maximum is 640 characters</strong> (IB subject, TOK, CAS and Extended Essay comments can run to 900: see below). Aim for about 580 for subject comments and steer clear of 640. Check your length once names go in (the question mark becomes a name).</p>
+
+    <div class="tablewrap">
+      <table class="rt">
+        <caption>Comment lengths by report round</caption>
+        <thead><tr><th scope="col">Report round</th><th scope="col">Subject teacher</th><th scope="col">Tutor</th><th scope="col">Dean</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Interim (Term 1, Years 7&ndash;13)</th>
+            <td data-label="Subject teacher"><span class="tx">About 60 words (about 360 characters)</span>academic progress and next steps, drawn from a moderated faculty comment bank. Proofreading not required.</td>
+            <td data-label="Tutor" class="muted">Not set out in the Staff Handbook</td>
+            <td data-label="Dean" class="muted">No entries required</td></tr>
+          <tr><th scope="row">Mid-year (Term 2, Years 7&ndash;13)</th>
+            <td data-label="Subject teacher"><span class="tx">About 90 words (about 580 characters)</span>personalised comment on academic progress and next steps. Grades entered. Proofreading required.</td>
+            <td data-label="Tutor"><span class="tx">About 60 words (about 360 characters)</span>personalised comment on progress, focused on personal responsibilities</td>
+            <td data-label="Dean"><span class="tx">About 40 words (about 240 characters)</span>school involvement and/or personal responsibilities, with an overarching academic comment where necessary</td></tr>
+          <tr><th scope="row">End of year (Term 4)</th>
+            <td data-label="Subject teacher"><span class="tx">About 90 words (about 580 characters)</span>personalised comment on academic progress. Grades entered. Proofreading required.</td>
+            <td data-label="Tutor"><span class="tx">About 60 words (about 360 characters)</span>as mid-year</td>
+            <td data-label="Dean"><span class="tx">About 40 words (about 240 characters)</span>as mid-year</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">IB comments: the 900-character limit</h3>
+    <div class="prose">
+      <p>Two sources speak to this, and both are given here.</p>
+      <ul>
+        <li>The Staff Handbook says IBDP subject comments have a <strong>maximum of 900 characters</strong> at mid-year.</li>
+        <li>The Business Information Management (BIM) dashboard checks for <strong>over 900 characters for IB subject comments and for IB TOK, CAS and Extended Essay comments</strong>. Tutor, dean, Scholarship, boarding and learning support comments are checked against 640 for every student.</li>
+      </ul>
+      <p>In short: IB subject, TOK, CAS and Extended Essay comments can run to 900. Everything else stays within 640. If you are unsure which limit applies to a particular comment, ask your HOF.</p>
+    </div>
+
+    <h3 class="sub">Very short comments</h3>
+    <div class="prose"><p>The BIM dashboard lists any comment of <strong>fewer than 10 words</strong> so someone can confirm it is finished. It still counts as written.</p></div>
+
+    <h3 class="sub">Check a comment&rsquo;s length</h3>
+    <noscript><p class="prose">The length checker needs JavaScript. The limits are: 580 characters as the target, 640 as the maximum, and 900 for IB subject, TOK, CAS and Extended Essay comments.</p></noscript>
+    <div class="checker" style="margin-top:0">
+      <label class="lbl" for="cmt">Paste or type a comment to check its length</label>
+      <textarea id="cmt" spellcheck="true" autocomplete="off" placeholder="? has worked diligently this term&hellip;"></textarea>
+      <p class="privacy">Nothing you type here is saved or sent. It stays in this window.</p>
+
+      <div class="readout" aria-live="polite">
+        <div class="stat"><span class="v"><span id="chars">0</span> <small>of 580</small></span><span class="k">characters (target)</span></div>
+        <div class="stat"><span class="v" id="words">0</span><span class="k">words</span></div>
+        <div class="stat"><span class="v" id="qs">0</span><span class="k">? name placeholders</span></div>
+      </div>
+
+      <div class="meter" aria-hidden="true">
+        <div class="track"><div class="fill" id="fill"></div></div>
+        <div class="tick tgt" id="tk-tgt"><span>580</span></div>
+        <div class="tick lim" id="tk-lim"><span>640 limit</span></div>
+        <div class="tick lim ib" id="tk-ib" hidden><span>900 IB</span></div>
+      </div>
+
+      <div class="opts">
+        <label class="toggle"><input type="checkbox" id="ib"> IB subject, TOK, CAS or Extended Essay comment (900 limit)</label>
+      </div>
+
+      <div class="verdict" id="verdict" role="status"><span class="ic" id="v-ic" aria-hidden="true">i</span><div><b id="v-t">Start typing</b><span id="v-d">The length checker counts as you type.</span></div></div>
+      <div class="flags"><div class="flag" id="short" hidden><span aria-hidden="true">&#9873;</span><div><b>Fewer than 10 words.</b> The BIM dashboard lists very short comments so someone can confirm they are finished. It still counts as written.</div></div></div>
+
+      <p class="nameNote"><b>Names change the count.</b> Each <code class="q">?</code> is a placeholder for the student&rsquo;s name and will be replaced when you paste into Synergetic, so the real length will be different. Check again once names go in.</p>
+      <p class="limits">Tutor, dean, Scholarship, boarding and learning support comments are checked against 640 for every student.</p>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="sec" id="good" aria-labelledby="good-h">
+    <div class="sec-head"><span class="no">07</span><h2 id="good-h">What a good comment does, and does not do</h2><a class="top" href="#top">Back to top</a></div>
+    <p class="lede">Write in your own voice. Show that you know the student. The Dio Dictionary conventions help parents read comments from many different authors in the same way.</p>
+
+    <div class="dodont">
+      <div class="dd">
+        <h3>A good comment</h3>
+        <ul>
+          <li>Gives honest feedback to parents on academic progress.</li>
+          <li>Is couched in positive language.</li>
+          <li>Suggests strategies for the student to focus on.</li>
+          <li>Gives a target, or feed forward, on what the student can focus on next (looking ahead).</li>
+        </ul>
+      </div>
+      <div class="dd no">
+        <h3>A good comment does not</h3>
+        <ul>
+          <li>Criticise the student.</li>
+          <li>Use unacceptable language or slang.</li>
+          <li>Provide information that cannot be supported.</li>
+          <li>Simply repeat in words what the grades already show.</li>
+          <li>Concentrate on the child&rsquo;s personality.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">Three example comments</h3>
+    <p class="lede" style="margin-top:0">These are from the Staff Handbook. &ldquo;Name&rdquo; stands where the student&rsquo;s name goes (you will type a question mark in your own drafts).</p>
+    <div class="examples">
+      <figure class="ex"><figcaption>Subject teacher</figcaption><blockquote>Name has worked diligently and conscientiously throughout the year. Both her writing and conversation pieces in the internal assessments demonstrated her ability to develop a piece in a structured manner and using a wide variety of languages. However, Name still needs to let go of her fear of losing control when speaking. She needs to develop a repertoire of language strategies and structures that facilitate spontaneous communication. If Name revises the topics she is less confident with, she is more than capable of achieving the external assessments with Excellence.</blockquote></figure>
+      <figure class="ex"><figcaption>Tutor</figcaption><blockquote>Name is a highly valued student in our tutor group and has made great progress across all areas. She has established a firm identity amongst her peers and she has formed positive relationships with junior students. Name&rsquo;s contributions to wider school life are indicative of her organisational abilities and I look forward to her continued leadership in our Circles of Care programme.</blockquote></figure>
+      <figure class="ex"><figcaption>Dean</figcaption><blockquote>Name is an impressive member of our year group and fully deserving of her honorary direct role. She will now look to balance her outstanding achievements in water polo with continued academic success during what promises to be a busy remainder of the year.</blockquote></figure>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="sec" id="catches" aria-labelledby="catches-h">
+    <div class="sec-head"><span class="no">08</span><h2 id="catches-h">What the BIM dashboard will catch</h2><a class="top" href="#top">Back to top</a></div>
+    <p class="lede">The BIM dashboard reads Senior (Years 12&ndash;13) end of year comments from Synergetic every 15 minutes and lists the ones that need correcting. Get these right before you paste in, and your comments will not show up on the list.</p>
+
+    <div class="catch">
+      <div class="cc"><h3>Names</h3><ul>
+        <li>A name left as &ldquo;?&rdquo;</li>
+        <li>When the student&rsquo;s own name is missing: another student&rsquo;s name at the start (usually from copying), a misspelt version of her name, her legal first name instead of her preferred name, or a misspelt course or provider name, such as Pamoja (the IB online course provider).</li>
+      </ul></div>
+      <div class="cc"><h3>Spaces</h3><ul>
+        <li>Hidden (non-breaking) spaces.</li>
+        <li>Two spaces in a row.</li>
+        <li>Comments that are only spaces.</li>
+        <li>Spaces at the start or end are removed automatically (Tidy-up only).</li>
+      </ul></div>
+      <div class="cc"><h3>Length</h3><ul>
+        <li>Over 640 characters.</li>
+        <li>Over 900 characters for IB subject comments and IB TOK, CAS and Extended Essay comments.</li>
+        <li>Tutor, dean, Scholarship, boarding and learning support comments: 640 for every student.</li>
+      </ul></div>
+      <div class="cc"><h3>Very short</h3><ul>
+        <li>Fewer than 10 words is listed so someone can check it is finished (it still counts as written).</li>
+      </ul></div>
+      <div class="cc wide"><h3>Handbook conventions</h3><ul>
+        <li>NZ spelling.</li>
+        <li>Capitals for IB terms and year levels.</li>
+        <li>Abbreviations written in full.</li>
+        <li>No contractions.</li>
+        <li>Handbook forms such as &ldquo;examination&rdquo; and &ldquo;class work&rdquo;.</li>
+      </ul></div>
+      <div class="cc wide not"><h3>What it will not catch</h3><p>Every slip. Please still read your comments through. Grades are not checked.</p></div>
+    </div>
+    <p class="prose" style="margin:16px 0 0;color:var(--muted);font-size:1rem">Comments counted as &ldquo;Teaching&rdquo; are subject, Scholarship, TOK, CAS, Extended Essay, Boarding and Learning Support, plus Tutor and Dean.</p>
+  </section>
+
+  <!-- 9 -->
+  <section class="sec" id="dictionary" aria-labelledby="dictionary-h">
+    <div class="sec-head"><span class="no">09</span><h2 id="dictionary-h">The Dio Dictionary</h2><a class="top" href="#top">Back to top</a></div>
+    <p class="lede">Although a personal writing style is encouraged, these conventions apply so parents can more easily interpret comments written by many authors. They come from the Staff Handbook 2026 (sections 8.0 and 8.1).</p>
+
+    <div class="dsearch js-only">
+      <label for="dq">Search the Dictionary</label>
+      <input id="dq" type="search" autocomplete="off" spellcheck="false" placeholder="Try &ldquo;exam&rdquo;, &ldquo;apostrophe&rdquo; or &ldquo;Level&rdquo;">
+      <p class="dcount" id="dcount" aria-live="polite"></p>
+    </div>
+    <p class="dnone" id="dnone" hidden>No entries match your search. Try a shorter word.</p>
+
+    <div id="dict">
+      <div class="dgroup"><h3>Misuse of words</h3>
+      <ul class="dict">
+        <li><b>uninterested</b> means a student does not pay attention in class. Do not use “disinterested” (which means impartial).</li>
+        <li><b>fewer</b> is for countable things (for example “fewer periods doing...”). <b>Less</b> is for uncountable things (for example “less time on...”).</li>
+      </ul></div>
+      <div class="dgroup"><h3>Capitals</h3>
+      <ul class="dict">
+        <li>All subjects are capitalised: French, Biology, Food.</li>
+        <li>Standard numbers: Standard 1.4 (capitalise “Standard” when used as a title with a number).</li>
+        <li>If you use a unit or topic title, capitalise it and follow it with the word “unit” or “topic” (for example “the Broken Bonds unit”).</li>
+        <li>Creative writing is a skill, not a title, so lower case: “Her creative writing needs to...”</li>
+        <li>“tutor group” is not capitalised.</li>
+        <li>“tutor group captain” is not capitalised.</li>
+      </ul></div>
+      <div class="dgroup"><h3>Commas</h3>
+      <ul class="dict">
+        <li>Modern usage has fewer commas. Read it aloud; if it makes sense, let it go.</li>
+        <li>“and” is a conjunction and usually does not need a comma before it.</li>
+        <li>“However” at the start of a sentence is followed by a comma.</li>
+        <li>“however” in the middle of a sentence is preceded and followed by a comma.</li>
+      </ul></div>
+      <div class="dgroup"><h3>Apostrophes</h3>
+      <ul class="dict">
+        <li>Possession: “Sarah has completed an excellent term’s work” (the work belongs to the term, so the apostrophe goes before the s).</li>
+        <li>Plural possession: “Sarah has completed two terms’ work” (the work belongs to two terms, so the apostrophe goes after the s).</li>
+        <li>Plural, no possession: “Sarah has worked very hard over the last two terms” (no apostrophe).</li>
+        <li>No contractions in reports: write “do not”, not “don’t”; “it is”, not “it’s”; “is not”, not “isn’t”.</li>
+        <li>“its” (possessive pronoun) has no apostrophe; “it is” is two words.</li>
+        <li>“hers” (possessive pronoun) has no apostrophe.</li>
+      </ul></div>
+      <div class="dgroup"><h3>Hyphens</h3>
+      <ul class="dict">
+        <li>Modern usage is relaxed about hyphens. Use them when you think it appropriate.</li>
+      </ul></div>
+      <div class="dgroup"><h3>IB Diploma terms</h3>
+      <ul class="dict">
+        <li>Paper 1, Paper 2, Paper 3, Section A, Section B</li>
+        <li>Diploma (not “IB Diploma”, not “Diploma Programme”)</li>
+        <li>CAS</li>
+        <li>“individual knowledge” and “ways of knowing” (lower case)</li>
+        <li>Standard Level (capitalised)</li>
+        <li>Higher Level (capitalised)</li>
+        <li>Extended Essay (capitalised, not “EE”)</li>
+        <li>Option A (capitalised)</li>
+        <li>Internal Assessment (capitalised, not “IA”)</li>
+        <li>Written Assignment (capitalised, not “WA”)</li>
+        <li>Interactive Oral Commentary (capitalised, not “IOC”)</li>
+        <li>Reflective Statement (capitalised, not “RS”)</li>
+        <li>IB learner profile (lower case)</li>
+      </ul></div>
+      <div class="dgroup"><h3>MYP terms</h3>
+      <ul class="dict">
+        <li>Identify formative and summative assessment where needed.</li>
+        <li>Criterion (singular), Criteria (plural).</li>
+        <li>Approaches to Learning (ATL): use the full phrase the first time, then the acronym.</li>
+        <li>Science (the subject name, capitalised) versus science knowledge (lower case when not the subject).</li>
+        <li>Service as Action (SA): use the full phrase the first time, then the acronym.</li>
+        <li>Communication: capitalised when referring to the ATL skill (for example “the Communication skill we were working on”); lower case for general use (for example “the way she communicates with teachers”).</li>
+        <li>Elaborated: capitalised when used as a formal descriptor.</li>
+        <li>IB learner profile (lower case).</li>
+      </ul></div>
+      <div class="dgroup"><h3>A to Z of conventions</h3>
+      <ul class="dict cols">
+        <li><b>Achieved</b>: capitalised when referring to the grade itself (for example “She was awarded an Achieved”).</li>
+        <li><b>achieved</b>: lower case when used as a verb (for example “She has achieved very well in...”).</li>
+        <li><b>class work</b>: two words.</li>
+        <li><b>classroom</b>: one word.</li>
+        <li><b>co-curricular</b></li>
+        <li><b>computer program</b>: but “programme” at all other times.</li>
+        <li><b>cooperative</b></li>
+        <li><b>Diocesan</b>: use the full name. “Dio” is not acceptable in reports. Do not use “the School”.</li>
+        <li><b>DioConnect</b></li>
+        <li><b>disinterested</b>: see “uninterested”.</li>
+        <li><b>do not</b>: no contractions in reports.</li>
+        <li><b>Education Perfect</b></li>
+        <li><b>end of year</b>: lower case, no hyphens.</li>
+        <li><b>essay writing</b></li>
+        <li><b>examination</b>: not “exam”.</li>
+        <li><b>external</b></li>
+        <li><b>extra-curricular</b></li>
+        <li><b>focused</b>: one “s”.</li>
+        <li><b>hard work</b>: two words.</li>
+        <li><b>hers</b>: no apostrophe (possessive pronoun).</li>
+        <li><b>Higher Level</b></li>
+        <li><b>homework</b>: one word.</li>
+        <li><b>However</b>: followed by a comma at the start of a sentence.</li>
+        <li><b>however</b>: preceded and followed by a comma in the middle of a sentence.</li>
+        <li><b>internal</b></li>
+        <li><b>-ise, not -ize</b>: organise, realise (not organize, realize).</li>
+        <li><b>is not</b>: no contractions.</li>
+        <li><b>its</b>: no apostrophe (possessive pronoun).</li>
+        <li><b>Language Perfect</b></li>
+        <li><b>led</b>: past tense of “lead” (for example “She led the way...”). Do not write “lead” for the past tense.</li>
+        <li><b>Level 2</b>: capitalised as a specific title.</li>
+        <li><b>open-minded</b></li>
+        <li><b>organisation / organise</b>: no “z”.</li>
+        <li><b>practice</b>: the noun (for example “In the practice test...”, “Going to hockey practice...”, “The practice examination was...”).</li>
+        <li><b>practise</b>: the verb (for example “She needs to practise her...”).</li>
+        <li><b>proactive</b></li>
+        <li><b>programme</b>: except “computer program”.</li>
+        <li><b>proofread</b></li>
+        <li><b>realise</b>: no “z”.</li>
+        <li><b>school</b>: not capitalised. See “Diocesan”.</li>
+        <li><b>Standard</b>: not capitalised unless part of a specific title (for example Standard 1.4).</li>
+        <li><b>Standard Level</b></li>
+        <li><b>term four</b>: spell out the number.</li>
+        <li><b>thoroughly</b></li>
+        <li><b>uninterested</b>: means does not pay attention. Not “disinterested”.</li>
+        <li><b>well-behaved</b></li>
+        <li><b>well-mannered</b></li>
+        <li><b>William Pike Challenge</b></li>
+        <li><b>workload</b>: one word.</li>
+        <li><b>Year 7</b>: capitalised with a numeral.</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="sec" id="tereo" aria-labelledby="tereo-h">
+    <div class="sec-head"><span class="no">10</span><h2 id="tereo-h">Te reo M&#257;ori in reports</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="prose">
+      <p>Te reo M&#257;ori follows correct linguistic protocols. Short vowel sounds use unaltered lettering (for example, <em>mahi</em>). Long vowel sounds require a macron (for example, <em>m&#257;tauranga</em>).</p>
+      <p>Synergetic does not support macrons. Where a macron would normally appear, use a double vowel instead in report comments entered into Synergetic.</p>
+    </div>
+    <div class="tablewrap" style="max-width:34rem;margin-top:6px">
+      <table class="rt two">
+        <caption>Macrons and Synergetic</caption>
+        <thead><tr><th scope="col">In documents and emails</th><th scope="col">In Synergetic</th></tr></thead>
+        <tbody>
+          <tr><td data-label="In documents and emails">m&#257;tauranga</td><td data-label="In Synergetic">maatauranga</td></tr>
+          <tr><td data-label="In documents and emails">M&#257;ori</td><td data-label="In Synergetic">Maaori</td></tr>
+          <tr><td data-label="In documents and emails">k&#333;rero</td><td data-label="In Synergetic">koorero</td></tr>
+          <tr><td data-label="In documents and emails">w&#257;nanga</td><td data-label="In Synergetic">waananga</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose" style="margin-top:18px">
+      <p>Some words have double vowels that are not macron substitutes (for example, <em>whakaaro</em>). These stay as they are in every setting. If you are unsure, check te Aka M&#257;ori Dictionary or ask a colleague with te reo expertise.</p>
+      <p>Outside Synergetic (in documents, emails and other communications), always use macrons.</p>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="sec" id="dashboards" aria-labelledby="dashboards-h">
+    <div class="sec-head"><span class="no">11</span><h2 id="dashboards-h">Dashboards</h2><a class="top" href="#top">Back to top</a></div>
+    <p class="lede">BIM&rsquo;s data check dashboards read comments straight from Synergetic and list the ones that need correcting, so you can fix them before reports go out.</p>
+
+    <div class="dash">
+      <div class="row live">
+        <div class="period">Senior EOY 2026 (Term 4)</div>
+        <div>
+          <!-- DASHBOARD-LINK -->
+          <a class="btn" href="https://dsfg.sharepoint.com/sites/BIMTeam/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FBIMTeam%2FShared%20Documents%2FData%20projects%2Fstudent%20data%20dashboards%2F2026%20T4%20EOY%20reports%20data%20check%2FSenior%20EOY%20Reports%20Data%20Check%202026%20T4%2Ehtml&amp;parent=%2Fsites%2FBIMTeam%2FShared%20Documents%2FData%20projects%2Fstudent%20data%20dashboards%2F2026%20T4%20EOY%20reports%20data%20check" target="_blank" rel="noopener noreferrer">Open the Senior EOY Reports Data Check 2026 T4 dashboard</a>
+          <p class="hint">Opens in a new tab with your Dio Microsoft sign-in.</p>
+        </div>
+      </div>
+      <div class="row soon">
+        <div class="period">Other reporting periods</div>
+        <div class="st">In development</div>
+      </div>
+    </div>
+
+    <div class="dgrid">
+      <div class="cc"><h3>What it covers</h3><p style="margin:0">Senior (Years 12&ndash;13) end of year report comments, refreshed from Synergetic every 15 minutes. Its tabs are By teacher, By faculty, Corrections, Print readiness and How this works.</p></div>
+      <div class="cc not"><h3>Please note</h3><p>The dashboard is confidential because it shows named students and their comments. It opens with your Dio Microsoft sign-in, and access is controlled by group. Please do not copy data from it into emails or documents.</p></div>
+      <div class="cc wide"><h3>Feedback</h3><p>Send it through a Helpdesk ticket to Business Information Management.</p></div>
+    </div>
+  </section>
+
+  <!-- 12 -->
+  <section class="sec" id="help" aria-labelledby="help-h">
+    <div class="sec-head"><span class="no">12</span><h2 id="help-h">Help</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="tablewrap" style="margin-top:14px">
+      <table class="rt help">
+        <thead><tr><th scope="col">If you need help with&hellip;</th><th scope="col">Ask</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Whether your subject uses a comment bank, or what applies to your comments</th><td data-label="Ask">Your HOF or line manager</td></tr>
+          <tr><th scope="row">A name, spelling or convention question in a class set</th><td data-label="Ask">Your report buddy, then your HOF (teachers) or Dean (tutors)</td></tr>
+          <tr><th scope="row">A Dean&rsquo;s comment</th><td data-label="Ask">Your Senior Line Manager</td></tr>
+          <tr><th scope="row">The Ultimate Report Writer or Ultimate Report Checker (access, how to use them)</th><td data-label="Ask">The staff member who manages the AI tools</td></tr>
+          <tr><th scope="row">A problem with the dashboard, Synergetic or your data</th><td data-label="Ask">Business Information Management, through a Helpdesk ticket</td></tr>
+          <tr><th scope="row">The Dio Dictionary or reporting process</th><td data-label="Ask">Staff Handbook sections 8.0 and 8.1, or your HOF</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+  <footer class="endnote">
+    <p>Sources: 2026 Staff Handbook, Report Completion Process, Reporting Responsibilities, BIM Senior EOY reports data check. Page as at 20 October 2026.</p>
+    <p>AI use: built with help from Claude (Anthropic).</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+
+  var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAY=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function todayNZ(){
+    try{return new Intl.DateTimeFormat('en-CA',{timeZone:'Pacific/Auckland',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}
+    catch(e){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);}
+  }
+  function dn(s){var a=s.split('-');return Date.UTC(+a[0],+a[1]-1,+a[2])/86400000;}
+  function parts(s){var a=s.split('-');var dt=new Date(Date.UTC(+a[0],+a[1]-1,+a[2]));return{d:+a[2],m:MON[+a[1]-1],w:DAY[dt.getUTCDay()]};}
+  function span(t,c){var e=document.createElement('span');e.className=c;e.textContent=t;return e;}
+
+  /* ---- Key dates: marked against today's date in Auckland ---- */
+  var today=todayNZ();
+  var rows=[].slice.call(document.querySelectorAll('#tl-reports li'));
+  var nextIdx=-1;
+  rows.forEach(function(li,i){if(nextIdx<0&&dn(li.getAttribute('data-date'))>=dn(today))nextIdx=i;});
+  rows.forEach(function(li,i){
+    var ds=li.getAttribute('data-date'),past=dn(ds)<dn(today);
+    if(past){li.className='past';li.appendChild(span('Issued','tag'));}
+    else if(i===nextIdx){
+      li.className='next';
+      var n=dn(ds)-dn(today);
+      li.appendChild(span('Next · '+(n===0?'Today':n===1?'Tomorrow':'In '+n+' days'),'tag'));
+    }
+  });
+  var note=document.getElementById('nextnote');
+  if(nextIdx<0){note.textContent='All 2026 reports have been issued.';}
+  else{var p=parts(rows[nextIdx].getAttribute('data-date'));note.textContent='Highlighted: the next report to be issued ('+p.w+' '+p.d+' '+p.m+'). Dates for every round are in the deadlines table below.';}
+
+  var drows=[].slice.call(document.querySelectorAll('table.dl tr[data-issued]'));
+  var nextIss=nextIdx<0?'':rows[nextIdx].getAttribute('data-date');
+  drows.forEach(function(tr){
+    var s=tr.getAttribute('data-issued');
+    if(dn(s)<dn(today))tr.className='past';else if(s===nextIss)tr.className='next';
+  });
+
+  var meets=[].slice.call(document.querySelectorAll('#mini-meetings li'));
+  meets.forEach(function(li){if(dn(li.getAttribute('data-date'))<dn(today))li.lastChild.textContent+=' (held)';});
+  document.getElementById('meetings').open=meets.some(function(li){return dn(li.getAttribute('data-date'))>=dn(today);});
+
+  /* ---- Generic tabs ---- */
+  function tabset(tabSel,paneSel){
+    var tabs=[].slice.call(document.querySelectorAll(tabSel));
+    var panes=[].slice.call(document.querySelectorAll(paneSel));
+    function select(i,focus){
+      tabs.forEach(function(t,j){t.setAttribute('aria-selected',j===i?'true':'false');t.tabIndex=j===i?0:-1;});
+      panes.forEach(function(p,j){p.hidden=j!==i;});
+      if(focus)tabs[i].focus();
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){select(i);});
+      t.addEventListener('keydown',function(e){
+        var k=e.key,n=-1;
+        if(k==='ArrowRight'||k==='ArrowDown')n=(i+1)%tabs.length;
+        else if(k==='ArrowLeft'||k==='ArrowUp')n=(i+tabs.length-1)%tabs.length;
+        else if(k==='Home')n=0;else if(k==='End')n=tabs.length-1;
+        if(n>=0){e.preventDefault();select(n,true);}
+      });
+    });
+    select(0);
+  }
+  tabset('.tab','.stage');
+  tabset('.rtab','.role');
+
+  /* ---- Dictionary: live filter (all entries show if scripts are off) ---- */
+  var dq=document.getElementById('dq'),dict=document.getElementById('dict');
+  var items=[].slice.call(dict.querySelectorAll('li'));
+  var groups=[].slice.call(dict.querySelectorAll('.dgroup'));
+  var dcount=document.getElementById('dcount'),dnone=document.getElementById('dnone');
+  items.forEach(function(li){li._t=li.textContent.toLowerCase();});
+  function filter(){
+    var q=dq.value.trim().toLowerCase(),shown=0;
+    items.forEach(function(li){var ok=!q||li._t.indexOf(q)>-1;li.hidden=!ok;if(ok)shown++;});
+    groups.forEach(function(g){g.hidden=!g.querySelector('li:not([hidden])');});
+    dnone.hidden=!(q&&shown===0);
+    dcount.textContent=q?('Showing '+shown+' of '+items.length+' entries.'):(items.length+' entries.');
+  }
+  dq.addEventListener('input',filter);filter();
+
+  /* ---- Comment length checker (nothing stored or sent) ---- */
+  var ta=document.getElementById('cmt'),ib=document.getElementById('ib');
+  var cEl=document.getElementById('chars'),wEl=document.getElementById('words'),qEl=document.getElementById('qs');
+  var fill=document.getElementById('fill'),vb=document.getElementById('verdict');
+  var vt=document.getElementById('v-t'),vd=document.getElementById('v-d'),vi=document.getElementById('v-ic');
+  var short=document.getElementById('short');
+  var tT=document.getElementById('tk-tgt'),tL=document.getElementById('tk-lim'),tI=document.getElementById('tk-ib');
+  var TARGET=580,LIMIT=640,IBLIM=900;
+  function update(){
+    var s=ta.value, n=s.length;
+    var words=(s.trim().match(/\S+/g)||[]).length;
+    var qs=(s.match(/\?/g)||[]).length;
+    var isIB=ib.checked, lim=isIB?IBLIM:LIMIT, scale=isIB?980:700;
+    cEl.textContent=n; wEl.textContent=words; qEl.textContent=qs;
+    tT.style.left=(TARGET/scale*100)+'%';
+    tL.style.left=(LIMIT/scale*100)+'%';
+    tI.style.left=(IBLIM/scale*100)+'%'; tI.hidden=!isIB;
+    tL.querySelector('span').textContent=isIB?'640':'640 limit';
+    fill.style.width=Math.min(n/scale*100,100)+'%';
+    fill.className='fill'+(n>lim?' over':(n>TARGET&&!isIB?' warn':''));
+    var cls='verdict',ic='i',t,d;
+    if(n===0){t='Start typing';d='The length checker counts as you type.';}
+    else if(n>lim){cls+=' over';ic='!';t='Over the limit by '+(n-lim)+' character'+(n-lim===1?'':'s');d=isIB?'IB subject, TOK, CAS and Extended Essay comments can run to 900. Trim this one.':'Synergetic accepts a maximum of 640 characters. Trim this one.';}
+    else if(!isIB&&n>TARGET){cls+=' warn';ic='!';t=(n-TARGET)+' over the 580 target, still within 640';d='Aim for about 580 and steer clear of 640. Remember that names will change the count.';}
+    else if(isIB&&n>LIMIT){cls+=' warn';ic='!';t='Over 640, within the 900 IB limit';d='Only IB subject, TOK, CAS and Extended Essay comments can run past 640.';}
+    else{cls+=' ok';ic='✓';t='Within the limit';d=isIB?(lim-n)+' characters to spare before 900.':(TARGET-n)+' characters to spare before the 580 target.';}
+    vb.className=cls;vi.textContent=ic;vt.textContent=t;vd.textContent=d;
+    short.hidden=!(words>0&&words<10);
+  }
+  ta.addEventListener('input',update);ib.addEventListener('change',update);update();
+})();
+</script>
+</body>
+</html>

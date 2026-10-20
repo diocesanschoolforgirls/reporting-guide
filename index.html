@@ -62,6 +62,8 @@ h1{margin:0 0 16px;font-weight:300;font-size:clamp(2.4rem,1.9rem + 2.6vw,3.6rem)
 
 /* ---------- Sections ---------- */
 .sec{padding:48px 0 4px;scroll-margin-top:12px}
+.sec.first{padding-top:36px}
+.sec.first .dash{border:3px solid var(--dio-red)}
 .sec h2{margin:0;font-weight:300;font-size:clamp(1.7rem,1.4rem + 1.3vw,2.4rem);line-height:1.15;color:var(--heading)}
 .sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 6px}
 .sec-head .no{flex:none;font-size:.875rem;font-weight:700;letter-spacing:.1em;color:var(--dio-red)}
@@ -420,7 +422,7 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
       <p class="kicker">A practical guide for Dio teachers, tutors and deans, Years 7&ndash;13</p>
       <h1>Reporting to Parents</h1>
       <p class="intro">A report is how a family hears, in writing, how their daughter is getting on and what she can do next. It is worth getting right.</p>
-      <p class="intro">This page gathers the dates, the three-stage process, who does what, comment lengths, the length checker, the Dio Dictionary and the dashboards in one place.</p>
+      <p class="intro">This page gathers the dashboards, the dates, the three-stage process, who does what, comment lengths, the length checker and the Dio Dictionary in one place.</p>
     </div>
   </div>
 </header>
@@ -433,37 +435,64 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     <p>You are responsible for each of your comments: their accuracy, appropriateness, professional tone and quality.</p>
   </aside>
 
+  <!-- 1 -->
+  <section class="sec first" id="dashboards" aria-labelledby="dashboards-h">
+    <div class="sec-head"><span class="no">01</span><h2 id="dashboards-h">Dashboards</h2><a class="top" href="#top">Back to top</a></div>
+    <p class="lede">BIM&rsquo;s data check dashboards read comments straight from Synergetic and list the ones that need correcting, so you can fix them before reports go out.</p>
+
+    <div class="dash">
+      <div class="row live">
+        <div class="period">Senior EOY 2026 (Term 4)</div>
+        <div>
+          <!-- DASHBOARD-LINK -->
+          <a class="btn" href="https://dsfg.sharepoint.com/sites/BIMTeam/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FBIMTeam%2FShared%20Documents%2FData%20projects%2Fstudent%20data%20dashboards%2F2026%20T4%20EOY%20reports%20data%20check%2FSenior%20EOY%20Reports%20Data%20Check%202026%20T4%2Ehtml&amp;parent=%2Fsites%2FBIMTeam%2FShared%20Documents%2FData%20projects%2Fstudent%20data%20dashboards%2F2026%20T4%20EOY%20reports%20data%20check" target="_blank" rel="noopener noreferrer">Open the Senior EOY Reports Data Check 2026 T4 dashboard</a>
+          <p class="hint">Opens in a new tab with your Dio Microsoft sign-in.</p>
+        </div>
+      </div>
+      <div class="row soon">
+        <div class="period">Other reporting periods</div>
+        <div class="st">In development</div>
+      </div>
+    </div>
+
+    <div class="dgrid">
+      <div class="cc"><h3>What it covers</h3><p style="margin:0">Senior (Years 12&ndash;13) end of year report comments, refreshed from Synergetic every 15 minutes. Its tabs are By teacher, By faculty, Corrections, Print readiness and How this works.</p></div>
+      <div class="cc not"><h3>Please note</h3><p>The dashboard is confidential because it shows named students and their comments. It opens with your Dio Microsoft sign-in, and access is controlled by group. Please do not copy data from it into emails or documents.</p></div>
+      <div class="cc wide"><h3>Feedback</h3><p>Send it through a Helpdesk ticket to Business Information Management.</p></div>
+    </div>
+  </section>
+
   <nav class="nav" aria-label="Sections on this page">
     <p class="eyebrow">Twelve sections</p>
     <ol class="chips">
-      <li><a class="chip" href="#why"><span class="n">1</span><span>Why reports matter</span></a></li>
-      <li><a class="chip" href="#dates"><span class="n">2</span><span>Key dates 2026</span></a></li>
-      <li><a class="chip" href="#stages"><span class="n">3</span><span>The three stages</span></a></li>
-      <li><a class="chip" href="#who"><span class="n">4</span><span>Who does what</span></a></li>
-      <li><a class="chip" href="#chain"><span class="n">5</span><span>The deadline chain</span></a></li>
-      <li><a class="chip" href="#length"><span class="n">6</span><span>How long should a comment be?</span></a></li>
-      <li><a class="chip" href="#good"><span class="n">7</span><span>A good comment</span></a></li>
-      <li><a class="chip" href="#catches"><span class="n">8</span><span>What the BIM dashboard will catch</span></a></li>
-      <li><a class="chip" href="#dictionary"><span class="n">9</span><span>The Dio Dictionary</span></a></li>
-      <li><a class="chip" href="#tereo"><span class="n">10</span><span>Te reo M&#257;ori in reports</span></a></li>
-      <li><a class="chip" href="#dashboards"><span class="n">11</span><span>Dashboards</span></a></li>
+      <li><a class="chip" href="#dashboards"><span class="n">1</span><span>Dashboards</span></a></li>
+      <li><a class="chip" href="#why"><span class="n">2</span><span>Why reports matter</span></a></li>
+      <li><a class="chip" href="#dates"><span class="n">3</span><span>Key dates 2026</span></a></li>
+      <li><a class="chip" href="#stages"><span class="n">4</span><span>The three stages</span></a></li>
+      <li><a class="chip" href="#who"><span class="n">5</span><span>Who does what</span></a></li>
+      <li><a class="chip" href="#chain"><span class="n">6</span><span>The deadline chain</span></a></li>
+      <li><a class="chip" href="#length"><span class="n">7</span><span>How long should a comment be?</span></a></li>
+      <li><a class="chip" href="#good"><span class="n">8</span><span>A good comment</span></a></li>
+      <li><a class="chip" href="#catches"><span class="n">9</span><span>What the BIM dashboard will catch</span></a></li>
+      <li><a class="chip" href="#dictionary"><span class="n">10</span><span>The Dio Dictionary</span></a></li>
+      <li><a class="chip" href="#tereo"><span class="n">11</span><span>Te reo M&#257;ori in reports</span></a></li>
       <li><a class="chip" href="#help"><span class="n">12</span><span>Help</span></a></li>
     </ol>
   </nav>
 
-  <!-- 1 -->
+  <!-- 2 -->
   <section class="sec" id="why" aria-labelledby="why-h">
-    <div class="sec-head"><span class="no">01</span><h2 id="why-h">Why reports matter</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="sec-head"><span class="no">02</span><h2 id="why-h">Why reports matter</h2><a class="top" href="#top">Back to top</a></div>
     <div class="prose">
       <p>A report is how a family hears, in writing, how their daughter is getting on and what she can do next. It is worth getting right. Many people will help you check your comments, but one rule sits above the rest: <strong>you are responsible for each of your comments</strong> &mdash; their accuracy, appropriateness, professional tone and quality.</p>
-      <p>This page gathers the dates, the three-stage process, who does what, comment lengths, the length checker, the Dio Dictionary and the dashboards in one place.</p>
+      <p>This page gathers the dashboards, the dates, the three-stage process, who does what, comment lengths, the length checker and the Dio Dictionary in one place.</p>
     </div>
   </section>
 
-  <!-- 2 -->
+  <!-- 3 -->
   <section class="sec" id="dates" aria-labelledby="dates-h">
-    <div class="sec-head"><span class="no">02</span><h2 id="dates-h">Key dates 2026</h2><a class="top" href="#top">Back to top</a></div>
-    <p class="lede">Reports are issued on these dates. Comment deadlines for the Senior (Years 12&ndash;13) Term 4 rounds sit on the BIM dashboard (see <a href="#dashboards">Dashboards</a> below); the table below gives the dates for every round. Report and meeting deadlines are also published on DioConnect.</p>
+    <div class="sec-head"><span class="no">03</span><h2 id="dates-h">Key dates 2026</h2><a class="top" href="#top">Back to top</a></div>
+    <p class="lede">Reports are issued on these dates. Comment deadlines for the Senior (Years 12&ndash;13) Term 4 rounds sit on the BIM dashboard (see <a href="#dashboards">Dashboards</a> above); the table below gives the dates for every round. Report and meeting deadlines are also published on DioConnect.</p>
 
     <div class="dates">
       <div class="panel">
@@ -521,9 +550,9 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     </div>
   </section>
 
-  <!-- 3 -->
+  <!-- 4 -->
   <section class="sec" id="stages" aria-labelledby="stages-h">
-    <div class="sec-head"><span class="no">03</span><h2 id="stages-h">The three stages</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="sec-head"><span class="no">04</span><h2 id="stages-h">The three stages</h2><a class="top" href="#top">Back to top</a></div>
     <p class="lede">The process is the same for subject teachers, tutors and deans. The exception is subjects that are permitted to use proofread comment banks already in Synergetic at mid-year and end of year. If you are unsure, check with your HOF or line manager.</p>
 
     <div class="stepper" id="stepper">
@@ -577,9 +606,9 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     </div>
   </section>
 
-  <!-- 4 -->
+  <!-- 5 -->
   <section class="sec" id="who" aria-labelledby="who-h">
-    <div class="sec-head"><span class="no">04</span><h2 id="who-h">Who does what</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="sec-head"><span class="no">05</span><h2 id="who-h">Who does what</h2><a class="top" href="#top">Back to top</a></div>
     <p class="lede">Everyone has a role in writing and checking reports. Find yours below.</p>
 
     <div class="rtabs" role="tablist" aria-label="Choose your role">
@@ -647,9 +676,9 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     <p class="posternote">A poster version of this information, organised by role, is also available.</p>
   </section>
 
-  <!-- 5 -->
+  <!-- 6 -->
   <section class="sec" id="chain" aria-labelledby="chain-h">
-    <div class="sec-head"><span class="no">05</span><h2 id="chain-h">The deadline chain</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="sec-head"><span class="no">06</span><h2 id="chain-h">The deadline chain</h2><a class="top" href="#top">Back to top</a></div>
     <p class="lede">Each report group moves along the same chain:</p>
 
     <ol class="chain" aria-label="The deadline chain">
@@ -702,9 +731,9 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     </div>
   </section>
 
-  <!-- 6 -->
+  <!-- 7 -->
   <section class="sec" id="length" aria-labelledby="length-h">
-    <div class="sec-head"><span class="no">06</span><h2 id="length-h">How long should a comment be?</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="sec-head"><span class="no">07</span><h2 id="length-h">How long should a comment be?</h2><a class="top" href="#top">Back to top</a></div>
     <p class="lede">Lengths are a guide, with a hard technical limit behind them. <strong>Synergetic&rsquo;s usual maximum is 640 characters</strong> (IB subject, TOK, CAS and Extended Essay comments can run to 900: see below). Aim for about 580 for subject comments and steer clear of 640. Check your length once names go in (the question mark becomes a name).</p>
 
     <div class="tablewrap">
@@ -773,9 +802,9 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     </div>
   </section>
 
-  <!-- 7 -->
+  <!-- 8 -->
   <section class="sec" id="good" aria-labelledby="good-h">
-    <div class="sec-head"><span class="no">07</span><h2 id="good-h">What a good comment does, and does not do</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="sec-head"><span class="no">08</span><h2 id="good-h">What a good comment does, and does not do</h2><a class="top" href="#top">Back to top</a></div>
     <p class="lede">Write in your own voice. Show that you know the student. The Dio Dictionary conventions help parents read comments from many different authors in the same way.</p>
 
     <div class="dodont">
@@ -809,9 +838,9 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     </div>
   </section>
 
-  <!-- 8 -->
+  <!-- 9 -->
   <section class="sec" id="catches" aria-labelledby="catches-h">
-    <div class="sec-head"><span class="no">08</span><h2 id="catches-h">What the BIM dashboard will catch</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="sec-head"><span class="no">09</span><h2 id="catches-h">What the BIM dashboard will catch</h2><a class="top" href="#top">Back to top</a></div>
     <p class="lede">The BIM dashboard reads Senior (Years 12&ndash;13) end of year comments from Synergetic every 15 minutes and lists the ones that need correcting. Get these right before you paste in, and your comments will not show up on the list.</p>
 
     <div class="catch">
@@ -845,9 +874,9 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     <p class="prose" style="margin:16px 0 0;color:var(--muted);font-size:1rem">Comments counted as &ldquo;Teaching&rdquo; are subject, Scholarship, TOK, CAS, Extended Essay, Boarding and Learning Support, plus Tutor and Dean.</p>
   </section>
 
-  <!-- 9 -->
+  <!-- 10 -->
   <section class="sec" id="dictionary" aria-labelledby="dictionary-h">
-    <div class="sec-head"><span class="no">09</span><h2 id="dictionary-h">The Dio Dictionary</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="sec-head"><span class="no">10</span><h2 id="dictionary-h">The Dio Dictionary</h2><a class="top" href="#top">Back to top</a></div>
     <p class="lede">Although a personal writing style is encouraged, these conventions apply so parents can more easily interpret comments written by many authors. They come from the Staff Handbook 2026 (sections 8.0 and 8.1).</p>
 
     <div class="dsearch js-only">
@@ -975,9 +1004,9 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     </div>
   </section>
 
-  <!-- 10 -->
+  <!-- 11 -->
   <section class="sec" id="tereo" aria-labelledby="tereo-h">
-    <div class="sec-head"><span class="no">10</span><h2 id="tereo-h">Te reo M&#257;ori in reports</h2><a class="top" href="#top">Back to top</a></div>
+    <div class="sec-head"><span class="no">11</span><h2 id="tereo-h">Te reo M&#257;ori in reports</h2><a class="top" href="#top">Back to top</a></div>
     <div class="prose">
       <p>Te reo M&#257;ori follows correct linguistic protocols. Short vowel sounds use unaltered lettering (for example, <em>mahi</em>). Long vowel sounds require a macron (for example, <em>m&#257;tauranga</em>).</p>
       <p>Synergetic does not support macrons. Where a macron would normally appear, use a double vowel instead in report comments entered into Synergetic.</p>
@@ -997,33 +1026,6 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
     <div class="prose" style="margin-top:18px">
       <p>Some words have double vowels that are not macron substitutes (for example, <em>whakaaro</em>). These stay as they are in every setting. If you are unsure, check te Aka M&#257;ori Dictionary or ask a colleague with te reo expertise.</p>
       <p>Outside Synergetic (in documents, emails and other communications), always use macrons.</p>
-    </div>
-  </section>
-
-  <!-- 11 -->
-  <section class="sec" id="dashboards" aria-labelledby="dashboards-h">
-    <div class="sec-head"><span class="no">11</span><h2 id="dashboards-h">Dashboards</h2><a class="top" href="#top">Back to top</a></div>
-    <p class="lede">BIM&rsquo;s data check dashboards read comments straight from Synergetic and list the ones that need correcting, so you can fix them before reports go out.</p>
-
-    <div class="dash">
-      <div class="row live">
-        <div class="period">Senior EOY 2026 (Term 4)</div>
-        <div>
-          <!-- DASHBOARD-LINK -->
-          <a class="btn" href="https://dsfg.sharepoint.com/sites/BIMTeam/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FBIMTeam%2FShared%20Documents%2FData%20projects%2Fstudent%20data%20dashboards%2F2026%20T4%20EOY%20reports%20data%20check%2FSenior%20EOY%20Reports%20Data%20Check%202026%20T4%2Ehtml&amp;parent=%2Fsites%2FBIMTeam%2FShared%20Documents%2FData%20projects%2Fstudent%20data%20dashboards%2F2026%20T4%20EOY%20reports%20data%20check" target="_blank" rel="noopener noreferrer">Open the Senior EOY Reports Data Check 2026 T4 dashboard</a>
-          <p class="hint">Opens in a new tab with your Dio Microsoft sign-in.</p>
-        </div>
-      </div>
-      <div class="row soon">
-        <div class="period">Other reporting periods</div>
-        <div class="st">In development</div>
-      </div>
-    </div>
-
-    <div class="dgrid">
-      <div class="cc"><h3>What it covers</h3><p style="margin:0">Senior (Years 12&ndash;13) end of year report comments, refreshed from Synergetic every 15 minutes. Its tabs are By teacher, By faculty, Corrections, Print readiness and How this works.</p></div>
-      <div class="cc not"><h3>Please note</h3><p>The dashboard is confidential because it shows named students and their comments. It opens with your Dio Microsoft sign-in, and access is controlled by group. Please do not copy data from it into emails or documents.</p></div>
-      <div class="cc wide"><h3>Feedback</h3><p>Send it through a Helpdesk ticket to Business Information Management.</p></div>
     </div>
   </section>
 

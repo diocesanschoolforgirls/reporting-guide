@@ -844,7 +844,7 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
 }
 
 /* ===================================================================
-   PIXEL DESIGN SYSTEM  ·  pixel.css  ·  v2.0 (18 November 2026)
+   PIXEL DESIGN SYSTEM  ·  pixel.css  ·  v2.1 (18 November 2026)
    Components. Needs tokens.css first. Every class starts px- so it never
    collides with a host page. Hand-written; uses only tokens.
    =================================================================== */
@@ -967,11 +967,21 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
 }
 
 /* --- Character and scene motion ------------------------------------------ */
-/* All CSS, on inner groups. Reduced motion and Pause (tokens.css) switch every
-   animation off, which leaves each character in its resting pose. */
+/* All CSS, transform and opacity only (nothing that moves the layout), on inner
+   groups. Reduced motion and Pause (tokens.css) switch every animation off, which
+   leaves each character in its resting pose.
+   v2.1 (Simon: "just a little bit more motion"): a slightly bigger bob with a soft
+   squash and stretch, and each character has its own occasional move on its own
+   clock, so the four never move in step:
+     Pip     waves now and then, and hops                     (wave 6s, hop 8.6s)
+     Sprout  hops most often, leaves swaying                  (hop 5.4s)
+     Plum    tilts side to side, beanie and all               (tilt 7.4s)
+     Pebble  reads left then right, then nudges the glasses   (read 9.8s, small hop 12.2s)
+   Durations are deliberately unrelated numbers so the moves rarely coincide. */
 .px-ch__shadow { fill: var(--ch-shadow); transform-box: fill-box; transform-origin: 50% 50%; }
-.px-ch__bob, .px-ch__eyes, .px-ch__eye, .px-ch__arm, .px-ch__sway,
+.px-ch__hop, .px-ch__bob, .px-ch__eyes, .px-ch__eye, .px-ch__pupil, .px-ch__arm, .px-ch__sway, .px-ch__specs,
 [class^="px-a-"], [class*=" px-a-"] { transform-box: fill-box; }
+.px-ch__hop, .px-ch__bob { transform-origin: 50% 100%; }
 .px-ch__eyes { transform-origin: 50% 50%; }
 .px-ch__arm { transform-origin: 50% 100%; }
 .px-ch__arm--l { transform: rotate(-152deg); }
@@ -980,57 +990,101 @@ code.q{font:700 1rem Consolas,monospace;background:#fff;border:1px solid #b9c3d6
 .px-pose--cheer .px-ch__arm--l { transform: rotate(-36deg); }
 .px-pose--cheer .px-ch__arm--r { transform: rotate(36deg); }
 .px-pose--blink .px-ch__eyes { transform: scaleY(0.12); }
-.px-pose--look .px-ch__eye { transform: translateX(1.6px); }
+.px-pose--look .px-ch__pupil { transform: translateX(1.6px); }
 .px-ch__sway { transform-origin: 50% 100%; }
 
+/* everyone: bob, blink */
 .px-anim .px-ch__bob { animation: px-bob var(--dur-bob) ease-in-out var(--d, 0s) infinite; }
 .px-anim > .px-ch__shadow { animation: px-shadow var(--dur-bob) ease-in-out var(--d, 0s) infinite; }
 .px-anim .px-ch__eyes { animation: px-blink 4.6s linear calc(var(--d, 0s) * 1.7) infinite; }
-.px-anim.px-ch--plum .px-ch__eyes { animation-duration: 3.1s; }
-.px-anim.px-ch--sprout .px-ch__bob { animation-duration: 1.9s; }
-.px-anim.px-ch--sprout .px-ch__sway { animation: px-leaf 2.4s ease-in-out var(--d, 0s) infinite; }
+/* Pip */
+.px-anim.px-ch--pip .px-ch__hop { animation: px-hop 8.6s ease-out calc(var(--d, 0s) * 2.3 - 3s) infinite; }
 .px-anim.px-ch--pip.px-pose--idle .px-ch__arm--r { animation: px-wave 6s ease-in-out var(--d, 0s) infinite; }
+/* Sprout */
+.px-anim.px-ch--sprout .px-ch__bob { animation-duration: 2.1s; }
+.px-anim.px-ch--sprout .px-ch__hop { animation: px-hop 5.4s ease-out calc(var(--d, 0s) * 2.3 - 1.2s) infinite; }
+.px-anim.px-ch--sprout .px-ch__sway { animation: px-leaf 2.4s ease-in-out var(--d, 0s) infinite; }
+/* Plum */
+.px-anim.px-ch--plum .px-ch__eyes { animation-duration: 3.1s; }
+.px-anim.px-ch--plum .px-ch__hop { animation: px-tilt 7.4s ease-in-out calc(var(--d, 0s) * 2.3 - 4.6s) infinite; }
+/* Pebble */
+.px-anim.px-ch--pebble .px-ch__pupil { animation: px-read 9.8s ease-in-out calc(var(--d, 0s) * 2.3 - 2s) infinite; }
+.px-anim.px-ch--pebble .px-ch__specs { animation: px-specs 9.8s ease-in-out calc(var(--d, 0s) * 2.3 - 2s) infinite; }
+.px-anim.px-ch--pebble .px-ch__hop { animation: px-hop-small 12.2s ease-out calc(var(--d, 0s) * 2.3 - 7s) infinite; }
+/* scene riders */
 .px-anim.px-pose--wave .px-ch__arm--r { animation: px-wave-on 1.6s ease-in-out var(--d, 0s) infinite; }
-.px-anim.px-hold .px-ch__arm--r { animation: none; }   /* holding something: the arm stays put */
 .px-anim.px-pose--cheer .px-ch__arm--l { animation: px-cheer-l 1.4s ease-in-out var(--d, 0s) infinite; }
 .px-anim.px-pose--cheer .px-ch__arm--r { animation: px-cheer-r 1.4s ease-in-out var(--d, 0s) infinite; }
+/* holding something: the arm stays put and the character does not hop or tilt away from it */
+.px-anim.px-hold .px-ch__arm--r, .px-anim.px-hold .px-ch__hop { animation: none; }
 
-@keyframes px-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3.5px); } }
-@keyframes px-shadow { 0%, 100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(0.82); opacity: 0.7; } }
+@keyframes px-bob {
+  0%, 100% { transform: translateY(0) scale(1.02, 0.975); }
+  20%, 80% { transform: translateY(0) scale(1, 1); }
+  50% { transform: translateY(-5px) scale(0.99, 1.015); }
+}
+@keyframes px-shadow { 0%, 100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(0.8); opacity: 0.65; } }
+@keyframes px-hop {
+  0%, 82%, 100% { transform: translateY(0) scale(1, 1); }
+  85% { transform: translateY(0) scale(1.06, 0.92); }
+  89% { transform: translateY(-9px) scale(0.97, 1.04); }
+  93% { transform: translateY(0) scale(1.04, 0.95); }
+  96% { transform: translateY(0) scale(1, 1); }
+}
+@keyframes px-hop-small {
+  0%, 88%, 100% { transform: translateY(0) scale(1, 1); }
+  90.5% { transform: translateY(0) scale(1.04, 0.95); }
+  93.5% { transform: translateY(-5px) scale(0.98, 1.03); }
+  96.5% { transform: translateY(0) scale(1, 1); }
+}
+@keyframes px-tilt {
+  0%, 76%, 100% { transform: rotate(0deg); }
+  81% { transform: rotate(-8deg); }
+  87% { transform: rotate(6deg); }
+  92% { transform: rotate(-2.5deg); }
+  96% { transform: rotate(0deg); }
+}
+@keyframes px-read {
+  0%, 62%, 100% { transform: translateX(0); }
+  66%, 72% { transform: translateX(-1.6px); }
+  77%, 83% { transform: translateX(1.6px); }
+  87% { transform: translateX(0); }
+}
+@keyframes px-specs { 0%, 88%, 100% { transform: translateY(0); } 90%, 94% { transform: translateY(-1.6px); } }
 @keyframes px-blink { 0%, 93%, 100% { transform: scaleY(1); } 95.5% { transform: scaleY(0.1); } }
-@keyframes px-leaf { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+@keyframes px-leaf { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
 @keyframes px-wave {
   0%, 52%, 100% { transform: rotate(152deg); }
   60% { transform: rotate(28deg); } 66% { transform: rotate(50deg); } 72% { transform: rotate(26deg); }
   78% { transform: rotate(50deg); } 84% { transform: rotate(30deg); } 92% { transform: rotate(152deg); }
 }
-@keyframes px-wave-on { 0%, 100% { transform: rotate(26deg); } 50% { transform: rotate(52deg); } }
-@keyframes px-cheer-l { 0%, 100% { transform: rotate(-30deg); } 50% { transform: rotate(-44deg); } }
-@keyframes px-cheer-r { 0%, 100% { transform: rotate(30deg); } 50% { transform: rotate(44deg); } }
+@keyframes px-wave-on { 0%, 100% { transform: rotate(24deg); } 50% { transform: rotate(54deg); } }
+@keyframes px-cheer-l { 0%, 100% { transform: rotate(-28deg); } 50% { transform: rotate(-46deg); } }
+@keyframes px-cheer-r { 0%, 100% { transform: rotate(28deg); } 50% { transform: rotate(46deg); } }
 
-/* scene props */
+/* scene props: a touch more drift than v2.0, still slow */
 .px-a-drift { animation: px-drift var(--dur, 8s) ease-in-out var(--d, 0s) infinite alternate; }
-.px-a-float { animation: px-float 3.2s ease-in-out var(--d, 0s) infinite; }
+.px-a-float { animation: px-float 3.4s ease-in-out var(--d, 0s) infinite; }
 .px-a-flicker { transform-origin: 50% 0%; animation: px-flicker 0.42s ease-in-out infinite alternate; }
 .px-a-sway { transform-origin: 50% 100%; animation: px-sway 3s ease-in-out var(--d, 0s) infinite; }
 .px-a-tail { transform-origin: 50% 0%; animation: px-sway 2.2s ease-in-out -0.6s infinite; }
 .px-a-wave { animation: px-wave-move 3.2s linear infinite; }
 .px-a-wave--slow { animation-duration: 4.6s; animation-direction: reverse; }
 .px-a-rock { transform-origin: 50% 100%; animation: px-rock 3.2s ease-in-out infinite; }
-.px-a-fly { transform-origin: 50% 50%; animation: px-fly 5.5s ease-in-out infinite; }
+.px-a-fly { transform-origin: 50% 50%; animation: px-fly 6s ease-in-out infinite; }
 .px-a-rise { animation: px-rise var(--dur, 4s) ease-out var(--d, 0s) infinite; }
 .px-a-fall { animation: px-fall var(--dur, 6s) linear var(--d, 0s) infinite; }
 .px-a-bump { transform-origin: 50% 100%; animation: px-bump 1.6s ease-in-out infinite; }
-@keyframes px-drift { from { transform: translateX(-6px); } to { transform: translateX(8px); } }
-@keyframes px-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-4px) rotate(1deg); } }
-@keyframes px-flicker { from { transform: scaleY(0.72); } to { transform: scaleY(1.08); } }
-@keyframes px-sway { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+@keyframes px-drift { from { transform: translateX(-10px); } to { transform: translateX(12px); } }
+@keyframes px-float { 0%, 100% { transform: translateY(0) rotate(-1.5deg); } 50% { transform: translateY(-6px) rotate(1.5deg); } }
+@keyframes px-flicker { from { transform: scaleY(0.7); } to { transform: scaleY(1.12); } }
+@keyframes px-sway { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
 @keyframes px-wave-move { from { transform: translateX(0); } to { transform: translateX(40px); } }
-@keyframes px-rock { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-2px) rotate(3deg); } }
-@keyframes px-fly { 0% { transform: translate(0, 0) rotate(-6deg); } 50% { transform: translate(62px, -10px) rotate(4deg); } 100% { transform: translate(0, 0) rotate(-6deg); } }
-@keyframes px-rise { 0% { transform: translateY(22px); opacity: 0; } 15% { opacity: 1; } 80% { opacity: 0.9; } 100% { transform: translateY(-30px); opacity: 0; } }
-@keyframes px-fall { 0% { transform: translateY(-36px); opacity: 0; } 12%, 85% { opacity: 1; } 100% { transform: translateY(60px); opacity: 0; } }
-@keyframes px-bump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.6px); } }
+@keyframes px-rock { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-3px) rotate(4deg); } }
+@keyframes px-fly { 0% { transform: translate(0, 0) rotate(-6deg); } 50% { transform: translate(68px, -14px) rotate(5deg); } 100% { transform: translate(0, 0) rotate(-6deg); } }
+@keyframes px-rise { 0% { transform: translateY(22px); opacity: 0; } 15% { opacity: 1; } 80% { opacity: 0.9; } 100% { transform: translateY(-34px) translateX(4px); opacity: 0; } }
+@keyframes px-fall { 0% { transform: translateY(-36px); opacity: 0; } 12%, 85% { opacity: 1; } 100% { transform: translateY(60px) translateX(-6px); opacity: 0; } }
+@keyframes px-bump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2.4px); } }
 
 /* --- Search -------------------------------------------------------------- */
 .px-search { position: relative; display: flex; align-items: center; }
@@ -1385,8 +1439,6 @@ mark{background:var(--group-1-wash);color:var(--group-1-ink)}
       <p class="kicker">A practical guide for Dio teachers, tutors and deans, Years 7&ndash;13</p>
       <h1>Reporting to Parents</h1>
       <p class="intro">A report is how a family hears, in writing, how their daughter is getting on and what she can do next. It is worth getting right.</p>
-      <p class="intro">This page gathers the dashboards, the dates, the three-stage process, who does what, comment lengths, the length checker and the Dio Dictionary in one place.</p>
-    <p class="rp-asat">Page as at 18 November 2026</p>
   </div>
 
   <section data-px-welcome aria-label="Welcome"></section>
@@ -2209,7 +2261,7 @@ mark{background:var(--group-1-wash);color:var(--group-1-ink)}
 <script>
 /* ===== Pixel design system v2.0 (inlined from the pixel folder) ===== */
 /* ===================================================================
-   PIXEL DESIGN SYSTEM  ·  pixel.js  ·  v2.0  (18 November 2026)
+   PIXEL DESIGN SYSTEM  ·  pixel.js  ·  v2.1  (18 November 2026)
    Self-contained, no libraries, no image files, no network.
 
    What it does
@@ -2221,7 +2273,8 @@ mark{background:var(--group-1-wash);color:var(--group-1-ink)}
        so everyone sees the same thing on the day. No labels.
      - Daily pickers: greeting by time of day, date line, phrase, and which
        soft rainbow wash sits behind the page. All change at local midnight.
-     - Every movement (bob, blink, wave, float, flicker) is a CSS animation, so
+     - Every movement (bob with a soft squash, blink, an occasional hop or
+       gesture of each character's own, wave, float, flicker) is a CSS animation, so
        prefers-reduced-motion: reduce stills it all with no script, and the
        Pause / Play button (WCAG 2.2.2) stills it for anyone else.
      - Checks the clock once a minute, so a tab left open rolls over at midnight.
@@ -2239,7 +2292,7 @@ mark{background:var(--group-1-wash);color:var(--group-1-ink)}
 (function (global) {
   'use strict';
 
-  var Pixel = { version: '2.0.0' };
+  var Pixel = { version: '2.1.0' };
   var doc = global.document;
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -2377,9 +2430,9 @@ mark{background:var(--group-1-wash);color:var(--group-1-ink)}
              '<circle cx="32" cy="12.6" r="5.2" fill="#f8cfe2"/>';
     }
     if (who === 'pebble') {        // round glasses
-      return '<g fill="rgba(255,255,255,0.22)" stroke="#002c56" stroke-width="2.1">' +
+      return '<g class="px-ch__specs"><g fill="rgba(255,255,255,0.22)" stroke="#002c56" stroke-width="2.1">' +
              '<circle cx="24.5" cy="40" r="6.6"/><circle cx="39.5" cy="40" r="6.6"/></g>' +
-             '<path d="M30.9 39.2 Q32 37.9 33.1 39.2" fill="none" stroke="#002c56" stroke-width="2.1" stroke-linecap="round"/>';
+             '<path d="M30.9 39.2 Q32 37.9 33.1 39.2" fill="none" stroke="#002c56" stroke-width="2.1" stroke-linecap="round"/></g>';
     }
     return '';
   }
@@ -2390,7 +2443,8 @@ mark{background:var(--group-1-wash);color:var(--group-1-ink)}
    * o.anim: true to animate (bob, blink; Pip waves, Sprout's leaves sway)
    * o.d:    a negative animation delay in seconds, so a line-up does not move in step
    * o.mouth: 'smile' | 'open'
-   * o.hold:  true to keep a raised arm still (it is holding something)
+   * o.hold:  true when the character is holding something (balloon strings, jetpack pods):
+   *          the raised arm stays put and there is no hop or tilt, so nothing comes apart
    */
   function charG(who, o) {
     o = o || {};
@@ -2401,8 +2455,8 @@ mark{background:var(--group-1-wash);color:var(--group-1-ink)}
       ? '<path d="M26.6 47.2 Q32 55.5 37.4 47.2 Z" fill="' + INK + '"/><path d="M29.4 51.2 Q32 53.6 34.6 51.2 Q32 50.2 29.4 51.2 Z" fill="#f08aa6"/>'
       : '<path d="M26.8 47.6 Q32 52.8 37.2 47.6" fill="none" stroke="' + INK + '" stroke-width="2.3" stroke-linecap="round"/>';
     var eye = function (x) {
-      return '<g class="px-ch__eye"><circle cx="' + x + '" cy="40" r="3.5" fill="' + INK + '"/>' +
-             '<circle class="px-ch__glint" cx="' + (x + 1.2) + '" cy="38.7" r="1.15" fill="#fff"/></g>';
+      return '<g class="px-ch__eye"><g class="px-ch__pupil"><circle cx="' + x + '" cy="40" r="3.5" fill="' + INK + '"/>' +
+             '<circle class="px-ch__glint" cx="' + (x + 1.2) + '" cy="38.7" r="1.15" fill="#fff"/></g></g>';
     };
     var arm = function (side) {     // a rounded capsule hanging from the shoulder; CSS turns it
       var x = side === 'l' ? 11.5 : 52.5;
@@ -2411,7 +2465,7 @@ mark{background:var(--group-1-wash);color:var(--group-1-ink)}
     };
     return '<g class="' + cls + '" style="--d:' + (o.d || 0) + 's">' +
       (o.noShadow ? '' : '<ellipse class="px-ch__shadow" cx="32" cy="68.4" rx="17" ry="3.2"/>') +
-      '<g class="px-ch__bob">' +
+      '<g class="px-ch__hop"><g class="px-ch__bob">' +
         '<ellipse cx="23.5" cy="63.6" rx="6.6" ry="4" fill="' + c.foot + '"/>' +
         '<ellipse cx="40.5" cy="63.6" rx="6.6" ry="4" fill="' + c.foot + '"/>' +
         arm('l') + arm('r') +
@@ -2423,7 +2477,7 @@ mark{background:var(--group-1-wash);color:var(--group-1-ink)}
         '<g class="px-ch__eyes">' + eye(24.5) + eye(39.5) + '</g>' +
         mouth +
         accessory(who, c) +
-      '</g></g>';
+      '</g></g></g>';
   }
   Pixel.charG = charG;
 
@@ -2493,7 +2547,7 @@ mark{background:var(--group-1-wash);color:var(--group-1-ink)}
       return sky(id) + cloud(28, 22, 1, 7, 0) + cloud(132, 76, 0.85, 9, -3) + cloud(140, 18, 0.6, 8, -5) +
         '<g transform="translate(52 6)"><g class="px-a-float">' +
           '<g transform="scale(1.05)">' + pod(-3) + pod(54) + '</g>' +
-          '<g transform="translate(2 0) scale(1.05)">' + charG(o.rider, { anim: true, pose: 'cheer', noShadow: true }) + '</g>' +
+          '<g transform="translate(2 0) scale(1.05)">' + charG(o.rider, { anim: true, pose: 'cheer', hold: true, noShadow: true }) + '</g>' +
         '</g></g>';
     } },
     kite: { label: 'Kite', draw: function (o, id) {

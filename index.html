@@ -1440,7 +1440,7 @@ html{scroll-behavior:smooth}
 .rp-toc li.is-open > ol,.rp-toc li:focus-within > ol{display:block}
 .rp-toc ol ol a{padding:4px 10px;font-size:.875rem;font-weight:600;color:var(--text-muted)}
 .rp-toc ol ol a[aria-current="true"]{color:var(--heading);font-weight:800}
-@media (min-width:900px){
+@media (min-width:1024px){
   main.wrap{position:relative;max-width:1204px;padding-left:244px}
   .rp-toc{position:absolute;top:0;bottom:0;left:20px;width:210px}
   .rp-toc__inner{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto;overscroll-behavior:contain}
@@ -1449,7 +1449,7 @@ html{scroll-behavior:smooth}
   main.wrap{max-width:1244px;padding-left:264px}
   .rp-toc{width:224px}
 }
-@media (max-width:899px){
+@media (max-width:1023px){
   .rp-toc{display:none;position:fixed;right:16px;bottom:76px;z-index:1000;width:min(340px,calc(100vw - 32px))}
   .rp-toc.is-open{display:block}
   .rp-toc__inner{max-height:calc(100vh - 110px);max-height:calc(100dvh - 110px);overflow-y:auto;box-shadow:var(--shadow-soft-lg);padding:var(--space-3)}
@@ -2899,12 +2899,16 @@ html{scroll-behavior:smooth}
   btn.type = 'button'; btn.className = 'rp-toc-btn';
   btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-controls', 'rp-toc');
   btn.textContent = 'Contents';
-  document.body.appendChild(btn);
+  main.insertBefore(btn, nav);
 
   function setOpen(open) {
     nav.classList.toggle('is-open', open);
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) { var first = nav.querySelector('a'); if (first) first.focus({ preventScroll: true }); }
   }
+  var wide = window.matchMedia('(min-width: 1024px)');
+  function onWide() { nav.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); }
+  if (wide.addEventListener) wide.addEventListener('change', onWide); else if (wide.addListener) wide.addListener(onWide);
   btn.addEventListener('click', function () { setOpen(!nav.classList.contains('is-open')); });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && nav.classList.contains('is-open')) { setOpen(false); btn.focus(); }
@@ -2954,6 +2958,7 @@ html{scroll-behavior:smooth}
     if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 4) {
       for (i = targets.length - 1; i >= 0; i--) { if (targets[i].level === 2) { found = targets[i]; break; } }
     }
+    if (!found && window.pageYOffset <= 0) { found = targets[0]; setActive(found); inner.scrollTop = 0; return; }
     setActive(found);
   }
 
